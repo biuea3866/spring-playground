@@ -7,7 +7,8 @@ import com.biuea.inflearnbasic.member.MemberServiceImpl
 
 class MemberApp {
     fun main(args: Array<String>) {
-        val memberService = MemberServiceImpl()
+        val appConfig = AppConfig()
+        val memberService = appConfig.memberService()
         val member = Member(
             id = 1L,
             name = "memberA",
