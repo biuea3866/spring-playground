@@ -20,10 +20,10 @@ class OrderServiceTest {
             grade = Grade.VIP
         )
         memberService.join(member)
-        val findMember = memberService.findMember(memberId)
+
         // when
         val order = orderService.createOrder(
-            findMember.id,
+            1L,
             "itemA",
             10000
         )

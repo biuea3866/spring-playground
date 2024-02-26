@@ -12,5 +12,8 @@ class MemoryMemberRepository: MemberRepository {
         localCache[member.id] = member
     }
 
-    override fun findById(id: Long): Member = localCache[id]?: throw Exception("해당하는 id가 없습니다.")
+    override fun findById(id: Long): Member {
+        println("cache: ${localCache[id]}")
+        return localCache[id] ?: throw IllegalArgumentException("해당 ID의 회원이 존재하지 않습니다.")
+    }
 }
