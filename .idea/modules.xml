@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/platform/platform-worker/platform-worker.iml" filepath="$PROJECT_DIR$/platform/platform-worker/platform-worker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/table-reserving/table-reserving-admin-api/table-reserving-admin-api.iml" filepath="$PROJECT_DIR$/table-reserving/table-reserving-admin-api/table-reserving-admin-api.iml" />
+    </modules>
+  </component>
+</project>
