@@ -37,6 +37,8 @@ e.g) XXXWorker
 
 여러 어그리거트를 호출하여 서로 상호작용을 할 수 있다.
 
+트랜잭션을 관리하는 단위이다.
+
 e.g) XXXFacade
 
 ## domain layer
@@ -46,8 +48,3 @@ e.g) XXXAggregate
 
 ## infrastructure layer
 외부 시스템(스토리지, 메일, 외부 서버 등)과의 연결을 담당한다.
-
-
-## 전체 구조
-table-reserving
-| 

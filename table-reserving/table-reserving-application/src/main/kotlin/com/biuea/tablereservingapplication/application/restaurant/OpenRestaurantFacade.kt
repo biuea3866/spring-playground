@@ -1,0 +1,29 @@
+package com.biuea.tablereservingapplication.application.restaurant
+
+import com.biuea.tablereservingapplication.core.Id
+import com.biuea.tablereservingapplication.domain.owner.repository.OwnerRepository
+import com.biuea.tablereservingapplication.domain.restaurant.repository.RestaurantRepository
+import org.springframework.context.ApplicationEventPublisher
+import org.springframework.stereotype.Component
+
+@Component
+class OpenRestaurantFacade(
+    private val restaurantRepository: RestaurantRepository,
+    private val applicationEventPublisher: ApplicationEventPublisher
+) {
+    fun execute(
+        ownerId: Long,
+        restaurantId: Long
+    ) {
+        val restaurant = restaurantRepository.findByIdAndOwnerId(
+            restaurantId = Id(restaurantId),
+            ownerId = Id(ownerId)
+        ) ?: throw IllegalArgumentException("Restaurant not found")
+
+        restaurant.openRestaurant {
+            applicationEventPublisher.publishEvent(it)
+        }
+
+        restaurantRepository.save(restaurant)
+    }
+}
