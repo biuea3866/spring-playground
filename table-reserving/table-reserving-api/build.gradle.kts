@@ -1,37 +1,30 @@
-plugins {
-    kotlin("jvm") version "1.9.25"
-    kotlin("plugin.spring") version "1.9.25"
-    id("org.springframework.boot") version "3.4.0"
-    id("io.spring.dependency-management") version "1.1.6"
-}
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
-group = "com.biuea"
-version = "0.0.1-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_17
+java.targetCompatibility = JavaVersion.VERSION_17
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+tasks.withType<KotlinJvmCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = "17"
     }
-}
-
-repositories {
-    mavenCentral()
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    val springDocVersion: String by project
+
+    implementation("org.springdoc:springdoc-openapi-ui:$springDocVersion")
+    implementation("org.springdoc:springdoc-openapi-kotlin:$springDocVersion")
+
+    implementation(project(":table-reserving-application"))
 }
 
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.addAll("-Xjsr305=strict")
+tasks {
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = "17"
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+        }
     }
-}
 
-tasks.withType<Test> {
-    useJUnitPlatform()
+    register("prepareKotlinBuildScriptModel"){}
 }
