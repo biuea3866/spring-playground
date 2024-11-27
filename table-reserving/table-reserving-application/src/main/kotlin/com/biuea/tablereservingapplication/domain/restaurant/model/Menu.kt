@@ -1,4 +1,9 @@
 package com.biuea.tablereservingapplication.domain.restaurant.model
 
-class Menu private constructor() {
+import com.biuea.tablereservingapplication.core.Id
+
+class Menu private constructor(
+    val id: Id,
+    val restaurantId: Id,
+) {
 }

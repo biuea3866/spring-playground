@@ -64,7 +64,6 @@ class RestaurantAggregation private constructor(
                 ownerId = ownerId,
                 openTime = ZonedDateTime.now()
             ),
-            eventType = RestaurantEventType.OPEN,
             event = "event.restaurant.opened"
         )
 

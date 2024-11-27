@@ -22,9 +22,7 @@ class OpenRestaurantFacade(
             ownerId = Id(ownerId)
         ) ?: throw IllegalArgumentException("Restaurant not found")
 
-        restaurant.openRestaurant {
-            applicationEventPublisher.publishEvent(it)
-        }
+        restaurant.openRestaurant(applicationEventPublisher::publishEvent)
 
         restaurantRepository.save(restaurant)
     }
