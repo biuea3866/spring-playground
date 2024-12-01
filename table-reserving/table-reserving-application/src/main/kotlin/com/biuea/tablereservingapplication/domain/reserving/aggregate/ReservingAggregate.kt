@@ -1,69 +1,75 @@
-package com.biuea.tablereservingapplication.domain.reserving.domain
+package com.biuea.tablereservingapplication.domain.reserving.aggregate
 
 import com.biuea.tablereservingapplication.core.DomainEvent
+import com.biuea.tablereservingapplication.core.DomainEventPayload
 import com.biuea.tablereservingapplication.core.Id
 import com.biuea.tablereservingapplication.domain.reserving.event.CancelledEventPayload
 import com.biuea.tablereservingapplication.domain.reserving.event.ReservedEventPayload
+import com.biuea.tablereservingapplication.domain.reserving.vo.MenuInfo
 import java.time.ZonedDateTime
 
 enum class ReservingStatus {
     PENDING,
     RESERVED,
-    CANCELLED
+    CANCELLED,
+    ENTERED,
+    EXITED
+    ;
+
+    companion object {
+        fun availableEntranceStatus(): List<ReservingStatus> {
+            return listOf(PENDING)
+        }
+
+        fun availableReserving(): List<ReservingStatus> = listOf(
+            PENDING
+        )
+    }
 }
 
 /**
  * 예약 어그리거트
  */
 class ReservingAggregate private constructor(
-    _id: Id,
-    _restaurantId: Id,
-    _userId: Id,
-    _status: ReservingStatus,
-    _reservedAt: ZonedDateTime?,
-    _cancelledAt: ZonedDateTime?,
-    _createdAt: ZonedDateTime,
-    _updatedAt: ZonedDateTime,
-    _deletedAt: ZonedDateTime?
+    private val _id: Id,
+    private val _restaurantId: Id,
+    private val _userId: Id,
+    private var _status: ReservingStatus,
+    private val _menuInfos: MutableList<MenuInfo>,
+    private val _blackListUsers: MutableList<BlackListUser>,
+    private var _reservedAt: ZonedDateTime?,
+    private var _cancelledAt: ZonedDateTime?,
+    private val _createdAt: ZonedDateTime,
+    private var _updatedAt: ZonedDateTime,
+    private val _deletedAt: ZonedDateTime?
 ) {
-    var id: Id = _id
-        private set
-    var restaurantId: Id = _restaurantId
-        private set
-    var userId: Id = _userId
-        private set
-    var status: ReservingStatus = _status
-        private set
-    var reservedAt: ZonedDateTime? = _reservedAt
-        private set
-    var cancelledAt: ZonedDateTime? = _cancelledAt
-        private set
-    var createdAt: ZonedDateTime = _createdAt
-        private set
-    var updatedAt: ZonedDateTime = _updatedAt
-        private set
-    var deletedAt: ZonedDateTime? = _deletedAt
-        private set
+    val id: Id get() = this._id
+    val restaurantId: Id get() = this._restaurantId
+    val userId: Id get() = this._userId
+    val status: ReservingStatus get() = this._status
+    val menuInfos: List<MenuInfo> get() = this._menuInfos
+    val blackListUsers: List<BlackListUser> get() = this._blackListUsers
+    val reservedAt: ZonedDateTime? get() = this._reservedAt
+    val cancelledAt: ZonedDateTime? get() = this._cancelledAt
+    val createdAt: ZonedDateTime get() = this._createdAt
+    val updatedAt: ZonedDateTime get() = this._updatedAt
+    val deletedAt: ZonedDateTime? get() = this._deletedAt
 
     fun reserve(
         publish: (DomainEvent) -> Unit,
-        nickname: String,
-        restaurantName: String,
-        menuNames: List<String>
+        payload: DomainEventPayload
     ): ReservingAggregate {
-        this.reservedAt = ZonedDateTime.now()
-        this.status = ReservingStatus.RESERVED
+        require(this.status in ReservingStatus.availableReserving())
+        require(payload is ReservedEventPayload) { "Payload type mismatch" }
+
+        this._reservedAt = ZonedDateTime.now()
+        this._status = ReservingStatus.RESERVED
+        this._updatedAt = ZonedDateTime.now()
 
         publish(
             DomainEvent.build(
                 event = "event.reserving.reserved",
-                payload = ReservedEventPayload(
-                    reservingId = this.id,
-                    nickname = nickname,
-                    restaurantName = restaurantName,
-                    menuNames = menuNames,
-                    reservedAt = this.reservedAt!!
-                )
+                payload = payload
             )
         )
 
@@ -72,18 +78,71 @@ class ReservingAggregate private constructor(
 
     fun cancel(
         publish: (DomainEvent) -> Unit,
-        payload: CancelledEventPayload
+        payload: DomainEventPayload
     ): ReservingAggregate {
-        this.status = ReservingStatus.CANCELLED
+        require(payload is CancelledEventPayload) { "Payload type mismatch" }
+
+        this._status = ReservingStatus.CANCELLED
+        this._updatedAt = ZonedDateTime.now()
 
         publish(
             DomainEvent.build(
                 event = "event.reserving.cancelled",
-                payload = CancelledEventPayload(
-                    userId =
-                )
+                payload = payload
             )
         )
+
+        return this
+    }
+
+    fun entrance(
+        publish: (DomainEvent) -> Unit,
+        payload: DomainEventPayload
+    ): ReservingAggregate {
+        require(payload is ReservedEventPayload) { "Payload type mismatch" }
+
+        this._status = ReservingStatus.RESERVED
+        this._updatedAt = ZonedDateTime.now()
+
+        publish(
+            DomainEvent.build(
+                event = "event.reserving.entrance",
+                payload = payload
+            )
+        )
+
+        return this
+    }
+
+    fun exit(
+        publish: (DomainEvent) -> Unit,
+        payload: DomainEventPayload
+    ): ReservingAggregate {
+        require(payload is ReservedEventPayload) { "Payload type mismatch" }
+
+        this._status = ReservingStatus.RESERVED
+        this._updatedAt = ZonedDateTime.now()
+
+        publish(
+            DomainEvent.build(
+                event = "event.reserving.exit",
+                payload = payload
+            )
+        )
+
+        return this
+    }
+
+    fun addMenu(menu: MenuInfo): ReservingAggregate {
+        this._menuInfos.add(menu)
+        this._updatedAt = ZonedDateTime.now()
+
+        return this
+    }
+
+    fun removeMenu(menu: MenuInfo): ReservingAggregate {
+        this._menuInfos.remove(menu)
+        this._updatedAt = ZonedDateTime.now()
 
         return this
     }
@@ -91,13 +150,17 @@ class ReservingAggregate private constructor(
     companion object {
         fun create(
             restaurantId: Id,
-            userId: Id
+            userId: Id,
+            menuInfos: List<MenuInfo>,
+            blackListUsers: List<BlackListUser>
         ): ReservingAggregate {
             return ReservingAggregate(
                 _id = Id(0L),
                 _restaurantId = restaurantId,
                 _userId = userId,
                 _status = ReservingStatus.PENDING,
+                _menuInfos = menuInfos,
+                _blackListUsers = blackListUsers,
                 _reservedAt = null,
                 _cancelledAt = null,
                 _createdAt = ZonedDateTime.now(),

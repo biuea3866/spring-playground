@@ -4,16 +4,16 @@ import com.biuea.tablereservingapplication.core.DomainEvent
 import com.biuea.tablereservingapplication.core.Id
 import java.time.ZonedDateTime
 
-class OpenRestaurantEventPayload(
+class CloseRestaurantEventPayload(
     val restaurantId: Id,
-    val ownerId: Id,
-    val openTime: ZonedDateTime
+    val restaurantName: String,
+    val closeTime: ZonedDateTime
 )
 
-data class OpenRestaurantEvent(
+data class CloseRestaurantEvent(
     override val occurredAt: ZonedDateTime,
     override val event: String,
-    override val payload: OpenRestaurantEventPayload
+    override val payload: CloseRestaurantEventPayload
 ): DomainEvent(
     occurredAt = occurredAt,
     event = event,
