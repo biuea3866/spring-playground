@@ -12,5 +12,11 @@ import java.time.ZonedDateTime
 abstract class DomainEvent(
     open val occurredAt: ZonedDateTime,
     open val event: String,
-    open val payload: Any
+    open val payload: Any,
+    open val domainEventType: DomainEventType
 )
+
+enum class DomainEventType {
+    OPEN_RESTAURANT,
+    CLOSE_RESTAURANT
+}

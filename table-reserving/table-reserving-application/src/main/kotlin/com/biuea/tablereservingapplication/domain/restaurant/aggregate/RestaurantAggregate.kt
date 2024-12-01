@@ -60,7 +60,6 @@ class RestaurantAggregation private constructor(
 
     /**
      * 식당 오픈
-     * @param publish 이벤트 발행 함수
      * @return RestaurantAggregation
      *
      * @throws IllegalArgumentException 식당이 CLOSED 상태가 아닐 때
@@ -68,23 +67,25 @@ class RestaurantAggregation private constructor(
      *
      * 1. 식당 오픈 관련 상태 체크
      * 2. 식당 오픈 관련 상태 변경
-     * 3. 오픈 식당 이벤트 발행
+     * 3. 오픈 식당 이벤트 등록
      */
-    fun openRestaurant(publish: (DomainEvent) -> Unit): RestaurantAggregation {
+    fun openRestaurant(): RestaurantAggregation {
         require(this._status in RestaurantStatus.availableOpen()) { "식당은 CLOSED 상태일 때만 오픈할 수 있습니다." }
         checkNotNull(this._openedAt == null) { "식당은 이미 오픈된 상태입니다." }
 
         this._openedAt = ZonedDateTime.now()
         this._status = RestaurantStatus.OPENED
 
-        publish(
-            OpenRestaurantEvent(
-                occurredAt = ZonedDateTime.now(),
-                event = "event.restaurant.opened",
-                payload = OpenRestaurantEventPayload(
-                    restaurantId = this._id,
-                    ownerId = this._ownerId,
-                    openTime = this._openedAt!!
+        this.addDomainEvents(
+            setOf(
+                OpenRestaurantEvent(
+                    occurredAt = ZonedDateTime.now(),
+                    event = "event.restaurant.opened",
+                    payload = OpenRestaurantEventPayload(
+                        restaurantId = this._id,
+                        ownerId = this._ownerId,
+                        openTime = this._openedAt!!
+                    )
                 )
             )
         )
@@ -104,21 +105,23 @@ class RestaurantAggregation private constructor(
      * 2. 식당 마감 관련 상태 변경
      * 3. 마감 식당 이벤트 발행
      */
-    fun close(publish: (DomainEvent) -> Unit): RestaurantAggregation {
+    fun close(): RestaurantAggregation {
         require(this._status in RestaurantStatus.availableClose()) { "식당은 OPENED 상태일 때만 CLOSED할 수 있습니다." }
         checkNotNull(this._closedAt != null) { "식당은 오픈되지 않은 상태에서 CLOSED할 수 없습니다." }
 
         this._closedAt = ZonedDateTime.now()
         this._status = RestaurantStatus.CLOSED
 
-        publish(
-            CloseRestaurantEvent(
-                occurredAt = ZonedDateTime.now(),
-                event = "event.restaurant.closed",
-                payload = CloseRestaurantEventPayload(
-                    restaurantId = this._id,
-                    restaurantName = this._name,
-                    closeTime = this._closedAt!!
+        this.addDomainEvents(
+            setOf(
+                CloseRestaurantEvent(
+                    occurredAt = ZonedDateTime.now(),
+                    event = "event.restaurant.closed",
+                    payload = CloseRestaurantEventPayload(
+                        restaurantId = this._id,
+                        restaurantName = this._name,
+                        closeTime = this._closedAt!!
+                    )
                 )
             )
         )
