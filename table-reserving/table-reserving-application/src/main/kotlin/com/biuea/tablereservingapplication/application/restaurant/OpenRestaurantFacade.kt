@@ -17,15 +17,15 @@ class OpenRestaurantFacade(
         ownerId: Long,
         restaurantId: Long
     ) {
-        val restaurant = restaurantRepository.findByIdAndOwnerId(
-            restaurantId = Id(restaurantId),
-            ownerId = Id(ownerId)
+        val restaurant = restaurantRepository.findById(
+            restaurantId = Id(restaurantId)
         ) ?: throw IllegalArgumentException("Restaurant not found")
 
-        restaurant.openRestaurant()
+        restaurant.openRestaurant(
+            publish = applicationEventPublisher::publishEvent,
+            ownerId = Id(ownerId)
+        )
 
-        restaurantRepository.save(restaurant).run {
-            this.pullEvents().forEach { applicationEventPublisher.publishEvent(it) }
-        }
+        restaurantRepository.save(restaurant)
     }
 }

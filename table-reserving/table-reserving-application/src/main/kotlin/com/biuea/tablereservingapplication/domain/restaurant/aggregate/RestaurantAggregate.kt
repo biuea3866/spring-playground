@@ -2,6 +2,7 @@ package com.biuea.tablereservingapplication.domain.restaurant.aggregate
 
 import com.biuea.tablereservingapplication.core.Aggregate
 import com.biuea.tablereservingapplication.core.DomainEvent
+import com.biuea.tablereservingapplication.core.DomainEventPublisher
 import com.biuea.tablereservingapplication.core.Id
 import com.biuea.tablereservingapplication.domain.restaurant.event.CloseRestaurantEvent
 import com.biuea.tablereservingapplication.domain.restaurant.event.OpenRestaurantEvent
@@ -58,6 +59,10 @@ class RestaurantAggregation private constructor(
     val openedAt: ZonedDateTime? get() = this._openedAt
     val closedAt: ZonedDateTime? get() = this._closedAt
 
+    fun checkMyRestaurant(ownerId: Id) {
+        require(this._ownerId == ownerId) { "해당 식당은 사장님의 식당이 아닙니다." }
+    }
+
     /**
      * 식당 오픈
      * @return RestaurantAggregation
@@ -69,23 +74,25 @@ class RestaurantAggregation private constructor(
      * 2. 식당 오픈 관련 상태 변경
      * 3. 오픈 식당 이벤트 등록
      */
-    fun openRestaurant(): RestaurantAggregation {
+    fun openRestaurant(
+        ownerId: Id,
+        publish: (DomainEvent) -> Unit
+    ): RestaurantAggregation {
+        this.checkMyRestaurant(ownerId)
         require(this._status in RestaurantStatus.availableOpen()) { "식당은 CLOSED 상태일 때만 오픈할 수 있습니다." }
         checkNotNull(this._openedAt == null) { "식당은 이미 오픈된 상태입니다." }
 
         this._openedAt = ZonedDateTime.now()
         this._status = RestaurantStatus.OPENED
 
-        this.addDomainEvents(
-            setOf(
-                OpenRestaurantEvent(
-                    occurredAt = ZonedDateTime.now(),
-                    event = "event.restaurant.opened",
-                    payload = OpenRestaurantEventPayload(
-                        restaurantId = this._id,
-                        ownerId = this._ownerId,
-                        openTime = this._openedAt!!
-                    )
+        publish(
+            OpenRestaurantEvent(
+                occurredAt = ZonedDateTime.now(),
+                event = "event.restaurant.opened",
+                payload = OpenRestaurantEventPayload(
+                    restaurantId = this._id,
+                    ownerId = this._ownerId,
+                    openTime = this._openedAt!!
                 )
             )
         )

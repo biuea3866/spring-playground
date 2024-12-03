@@ -1,7 +1,6 @@
 package com.biuea.tablereservingapplication.domain.restaurant.event
 
 import com.biuea.tablereservingapplication.core.DomainEvent
-import com.biuea.tablereservingapplication.core.DomainEventType
 import com.biuea.tablereservingapplication.core.Id
 import java.time.ZonedDateTime
 
@@ -18,8 +17,7 @@ data class OpenRestaurantEvent(
 ): DomainEvent(
     occurredAt = occurredAt,
     event = event,
-    payload = payload,
-    domainEventType = DomainEventType.OPEN_RESTAURANT
+    payload = payload
 ) {
     companion object {
         fun from(

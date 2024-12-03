@@ -12,22 +12,18 @@ import java.time.ZonedDateTime
 import java.util.ServiceLoader.Provider
 import kotlin.reflect.KClass
 
-fun interface Facade: (FacadeDTO) -> Unit
+fun interface Facade<in T> {
+    fun execute(dto: T)
+}
+
+class FacadeFactory<T>(
+    private val instances: Map<KClass<T>, Facade<T>>
+) {
+    inline fun<reified T> facadeFactory(dto: T): Facade<T> = this.instances[dto::class]
+        ?: throw IllegalArgumentException("Facade not found")
+}
 
 interface FacadeDTO
-
-enum class FacadeType {
-    DO_SOMETHING
-}
-
-@Component
-class FacadeFactory(
-    private val facadeList: Map<FacadeType, Facade>
-) {
-    fun getFacade(type: FacadeType): Facade {
-        return this.facadeList[type]?: throw IllegalArgumentException("Facade not found")
-    }
-}
 
 @Component
 class DoSomethingFacade(
@@ -35,21 +31,17 @@ class DoSomethingFacade(
     private val applicationEventPublisher: ApplicationEventPublisher
 ): Facade {
     @Transactional
-    override fun invoke(dto: FacadeDTO) {
+    override fun execute(dto: FacadeDTO) {
         val restaurant = this.restaurantAggregation.openRestaurant()
         restaurant.pullEvents().forEach { applicationEventPublisher.publishEvent(it) }
     }
 }
-
-class DoSomethingDTO(
-    val restaurantId: Long,
-): FacadeDTO
 
 class Controller(
     private val facadeFactory: FacadeFactory
 ) {
     fun callOpenFacade() {
         this.facadeFactory.getFacade(FacadeType.DO_SOMETHING)
-            .invoke(DoSomethingDTO(0L))
+            .execute(DoSomethingDTO(0L))
     }
 }
