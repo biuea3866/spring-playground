@@ -40,7 +40,7 @@ class RestaurantUser {
 }
 
 abstract class UserFactory {
-    fun newInstance(dto: User.SignupDTO): User {
+    fun newInstance(): User {
         val user = createUser()
         user.signup()
         return user
@@ -58,7 +58,7 @@ class PlatformUserFactory(
 }
 
 fun main() {
-    val platformUserFactory = PlatformUserFactory()
-    val platformUser = platformUserFactory.newInstance(PlatformUser.PlatformUserSignupDTO(grade = "VIP"))
+    val platformUserFactory = PlatformUserFactory(PlatformUser.PlatformUserSignupDTO(grade = "VIP"))
+    val platformUser = platformUserFactory.newInstance()
     platformUser.signup()
 }

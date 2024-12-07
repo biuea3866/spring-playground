@@ -37,12 +37,12 @@ fun main() {
 // 예시2
 // 기존 연동중인 타 시스템
 interface SomeIntegrationClient {
-    @POST("/api/v1/some-integration")
+//    @POST("/api/v1/some-integration")
     fun transferData(data: Int): Any
 }
 
 interface ChangeIntegrationClient {
-    @POST("/api/v1/change-integration")
+//    @POST("/api/v1/change-integration")
     fun transferData(data: Int): Any
 }
 
@@ -54,7 +54,7 @@ class IntegrationService(
         someIntegrationClient.transferData(data)
     }
 }
-
-fun main2() {
-    val integrationService = IntegrationService()
-}
+//
+//fun main2() {
+//    val integrationService = IntegrationService()
+//}
