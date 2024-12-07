@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="708778ce-113e-4410-80d6-6d0c0462f985" name="Changes" comment="" />
+    <list default="true" id="708778ce-113e-4410-80d6-6d0c0462f985" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/config/SecurityConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/config/SecurityConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/core/DomainEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/core/DomainEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/user/aggregate/UserAggregate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/user/aggregate/UserAggregate.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +27,9 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/design-pattern">
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/inflearn-basic">
@@ -149,17 +167,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Build design-pattern.executor": "Run",
     "Gradle.platform-infra [build].executor": "Run",
     "Gradle.table-reserving [build].executor": "Run",
     "Gradle.table-reserving-admin-api::Users:biuea:spring-playground [build].executor": "Run",
     "Gradle.table-reserving-application [bootTestRun].executor": "Run",
     "Gradle.table-reserving-application [build].executor": "Run",
+    "Kotlin.CompositeAndVisitorKt.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feat/authentication",
     "jdk.selected.JAVA_MODULE": "corretto-17 (2)",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/biuea/spring-playground/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/restaurant/event",
+    "last_opened_file_path": "/Users/biuea/spring-playground/design-pattern/src/main/kotlin/com/biuea/designpattern",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -174,6 +195,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/design-pattern/src/main/kotlin/com/biuea/designpattern" />
       <recent name="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/restaurant/event" />
       <recent name="$PROJECT_DIR$/table-reserving" />
       <recent name="$PROJECT_DIR$" />
@@ -187,29 +209,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.table-reserving-admin-api::Users:biuea:spring-playground [build]">
-    <configuration name="platform-infra [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform/platform-infra" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Kotlin.CompositeAndVisitorKt">
     <configuration name="table-reserving [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -297,6 +297,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>false</RunAsTest>
       <method v="2" />
+    </configuration>
+    <configuration name="CompositeAndVisitorKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.biuea.designpattern.CompositeAndVisitorKt" />
+      <module name="design-pattern.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="spring-playground" />
@@ -386,13 +393,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TableReservingAuthnApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="spring-playground.table-reserving-authn-api.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.biuea.tablereservingauthn.TableReservingAuthnApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.CompositeAndVisitorKt" />
         <item itemvalue="Gradle.table-reserving-admin-api::Users:biuea:spring-playground [build]" />
         <item itemvalue="Gradle.table-reserving-application [bootTestRun]" />
         <item itemvalue="Gradle.table-reserving-application [build]" />
         <item itemvalue="Gradle.table-reserving [build]" />
-        <item itemvalue="Gradle.platform-infra [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -419,6 +433,7 @@
       <workItem from="1732012758484" duration="590000" />
       <workItem from="1732014688128" duration="594000" />
       <workItem from="1732016484746" duration="78163000" />
+      <workItem from="1733277830570" duration="8366000" />
     </task>
     <servers />
   </component>
