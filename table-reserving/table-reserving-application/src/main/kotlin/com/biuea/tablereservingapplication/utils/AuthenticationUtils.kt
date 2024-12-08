@@ -12,12 +12,14 @@ import java.util.Date
 class AuthenticationUtils(
     @Value("\${jwt.secret}")
     private val secretKey: String,
-    @Value("\${jwt.expiration-time}")
-    private val expirationTime: Long
+    @Value("\${jwt.access.token.expire-time}")
+    private val accessExpirationTime: Long,
+    @Value("\${jwt.refresh.token.expire-time}")
+    private val refreshExpirationTime: Long
 ) {
     private val key: Key = Keys.hmacShaKeyFor(secretKey.toByteArray())
 
-    fun generateToken(
+    fun generateAccessToken(
         email: String,
         userId: Long
     ): String {
@@ -28,9 +30,35 @@ class AuthenticationUtils(
                 "email" to email
             ))
             .setIssuedAt(Date()) // 토큰 발급 시간
-            .setExpiration(Date(System.currentTimeMillis() + expirationTime)) // 토큰 만료 시간
+            .setExpiration(Date(System.currentTimeMillis() + accessExpirationTime)) // 토큰 만료 시간
             .signWith(key, SignatureAlgorithm.ES256) // 토큰 서명
             .compact()
+    }
+
+    fun generateRefreshToken(
+        email: String,
+        userId: Long
+    ): String {
+        return Jwts.builder()
+            .setSubject(email)
+            .setClaims(mapOf(
+                "userId" to userId,
+                "email" to email
+            ))
+            .setIssuedAt(Date())
+            .setExpiration(Date(System.currentTimeMillis() + refreshExpirationTime))
+            .signWith(key, SignatureAlgorithm.ES256)
+            .compact()
+    }
+
+    fun isTokenExpired(token: String): Boolean {
+        return Jwts.parserBuilder()
+            .setSigningKey(key)
+            .build()
+            .parseClaimsJws(token)
+            .body
+            .expiration
+            .before(Date())
     }
 
     fun extractValue(

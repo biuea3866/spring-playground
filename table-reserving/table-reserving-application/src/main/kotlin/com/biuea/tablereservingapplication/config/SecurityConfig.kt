@@ -33,8 +33,11 @@ class SecurityConfig(
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         return http.csrf { it.disable()}
             .authorizeHttpRequests {
-                it.requestMatchers("/app/authentication/**").permitAll()
-                    .anyRequest().authenticated()
+                it.requestMatchers(
+                    "/app/authentication/login",
+                    "/app/authentication/logout",
+                    "/app/authentication/signup"
+                ).permitAll().anyRequest().authenticated()
             }
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
             .build()

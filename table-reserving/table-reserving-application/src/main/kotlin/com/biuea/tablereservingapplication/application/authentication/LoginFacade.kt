@@ -11,16 +11,30 @@ import org.springframework.transaction.annotation.Transactional
 class LoginFacade(
     private val authenticationUtils: AuthenticationUtils,
     private val userRepository: UserRepository,
-    private val bCryptPasswordEncoder: BCryptPasswordEncoder
+    private val bCryptPasswordEncoder: BCryptPasswordEncoder,
+    private val tokenManagementService: TokenManagementService
 ) {
     @Transactional(readOnly = true)
     fun login(
         email: String,
         password: String
-    ): String {
+    ): Pair<String, String> {
         val user = userRepository.findByEmail(email)
             ?: throw HttpException.UnauthorizedException("User not found")
         user.validatePassword { bCryptPasswordEncoder.matches(password, it) }
-        return authenticationUtils.generateToken(email, user.id.id)
+        val accessToken = authenticationUtils.generateAccessToken(email, user.id.id)
+        val refreshToken = authenticationUtils.generateRefreshToken(email, user.id.id)
+        this.tokenManagementService.saveToken(refreshToken, email)
+        return Pair(accessToken, refreshToken)
+    }
+
+    @Transactional(readOnly = true)
+    fun refresh(refreshToken: String): Pair<String, String> {
+        val email = authenticationUtils.extractValue(refreshToken, "email")
+        val user = userRepository.findByEmail(email)
+            ?: throw HttpException.UnauthorizedException("User not found")
+        val accessToken = authenticationUtils.generateAccessToken(email, user.id.id)
+
+        return Pair(accessToken, refreshToken)
     }
 }
