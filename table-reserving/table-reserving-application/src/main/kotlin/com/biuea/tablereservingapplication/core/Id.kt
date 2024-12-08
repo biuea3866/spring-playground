@@ -2,9 +2,10 @@ package com.biuea.tablereservingapplication.core
 
 @JvmInline
 value class Id(
-    private val id: Long
+    private val _id: Long
 ){
+    val id get() = _id
     init {
-        require(id > 0) { "Id must be greater than 0" }
+        require(_id > 0) { "Id must be greater than 0" }
     }
 }

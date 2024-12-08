@@ -2,6 +2,7 @@ package com.biuea.tablereservingapplication.domain.user.aggregate
 
 import com.biuea.tablereservingapplication.core.DomainEvent
 import com.biuea.tablereservingapplication.core.Id
+import com.biuea.tablereservingapplication.domain.user.vo.AuthenticationInfo
 import com.biuea.tablereservingapplication.domain.user.vo.UserBasicInfo
 import java.time.ZonedDateTime
 
@@ -18,14 +19,22 @@ class UserAggregate private constructor(
     private val _updatedAt: ZonedDateTime,
     private val _deletedAt: ZonedDateTime?
 ) {
-    private val id: Id get() = this._id
-    private val basicInfo: UserBasicInfo get() = UserBasicInfo(
+    val id: Id get() = this._id
+    val basicInfo: UserBasicInfo get() = UserBasicInfo(
         nickname = this._nickname,
         email = this._email,
         phoneNumber = this._phoneNumber,
         profileImageUrl = this._profileImageUrl,
         grade = this._grade
     )
+    val authenticationInfo: AuthenticationInfo get() = AuthenticationInfo(
+        email = this._email,
+        password = this._password
+    )
+
+    fun validatePassword(matchPassword: (password: String) -> Unit) {
+        this.authenticationInfo.validatePassword { matchPassword(it) }
+    }
 
     fun signup(publish: (DomainEvent) -> Unit): UserAggregate {
         require(this._nickname.isNotEmpty()) { "닉네임은 필수입니다." }

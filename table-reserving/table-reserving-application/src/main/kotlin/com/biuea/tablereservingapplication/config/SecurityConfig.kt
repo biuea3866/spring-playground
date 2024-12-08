@@ -8,12 +8,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache
 
 @Configuration
 @EnableWebSecurity
 class SecurityConfig(
-    private val jwtFilter: JwtFilter,
+    private val jwtAuthenticationFilter: JwtAuthenticationFilter
 ) {
     @Bean
     fun bCryptPasswordEncoder(): BCryptPasswordEncoder {
@@ -30,16 +31,15 @@ class SecurityConfig(
 
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
-        return http.csrf().disable()
-            .authorizeHttpRequests { authorizeRequests ->
-                authorizeRequests.anyRequest()
-                    .permitAll()
+        return http.csrf { it.disable()}
+            .authorizeHttpRequests {
+                it.requestMatchers(
+                    "/app/authentication/login",
+                    "/app/authentication/logout",
+                    "/app/authentication/signup"
+                ).permitAll().anyRequest().authenticated()
             }
-            .addFilterBefore()
-            .sessionManagement().sessionCreationPolicy()
-            .and()
-            .formLogin().disable()
-            .addFilterBefore()
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
             .build()
     }
 }
