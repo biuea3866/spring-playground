@@ -1,6 +1,7 @@
 package com.biuea.tablereservingapplication.domain.user.aggregate
 
 import com.biuea.tablereservingapplication.core.DomainEvent
+import com.biuea.tablereservingapplication.core.HttpException
 import com.biuea.tablereservingapplication.core.Id
 import com.biuea.tablereservingapplication.domain.user.vo.AuthenticationInfo
 import com.biuea.tablereservingapplication.domain.user.vo.UserBasicInfo
@@ -50,6 +51,12 @@ class UserAggregate private constructor(
 
     fun updateProfile() {}
 
+    fun checkGranted(grade: UserGrade) {
+        if (this._grade.isGreaterThan(grade).not()) {
+            throw HttpException.ForbiddenException("권한이 없습니다.")
+        }
+    }
+
     companion object {
         fun create(
             nickname: String,
@@ -85,4 +92,9 @@ enum class UserGrade {
     GOLD,
     PLATINUM,
     DIAMOND
+    ;
+
+    fun isGreaterThan(grade: UserGrade): Boolean {
+        return this.ordinal > grade.ordinal
+    }
 }
