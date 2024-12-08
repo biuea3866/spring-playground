@@ -13,4 +13,5 @@ abstract class DomainEvent(
     open val occurredAt: ZonedDateTime,
     open val event: String,
     open val payload: Any,
-)
+) {
+}

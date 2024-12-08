@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="spring-playground.platform-domain" target="17" />
+      <module name="spring-playground.platform-domain.main" target="17" />
+      <module name="spring-playground.platform-domain.test" target="17" />
+      <module name="spring-playground.platform-infra" target="17" />
+      <module name="spring-playground.platform-infra.main" target="17" />
+      <module name="spring-playground.platform-infra.test" target="17" />
+      <module name="table-reserving" target="17" />
+      <module name="table-reserving-admin-api" target="17" />
+      <module name="table-reserving-admin-api.main" target="17" />
+      <module name="table-reserving-admin-api.test" target="17" />
+      <module name="table-reserving-api" target="17" />
+      <module name="table-reserving-api.main" target="17" />
+      <module name="table-reserving-api.test" target="17" />
+      <module name="table-reserving-application" target="17" />
+      <module name="table-reserving-application.main" target="17" />
+      <module name="table-reserving-application.test" target="17" />
+      <module name="table-reserving.main" target="17" />
+      <module name="table-reserving.table-reserving" target="17" />
+      <module name="table-reserving.table-reserving-admin-api" target="17" />
+      <module name="table-reserving.table-reserving-admin-api.main" target="17" />
+      <module name="table-reserving.table-reserving-admin-api.test" target="17" />
+      <module name="table-reserving.table-reserving-api" target="17" />
+      <module name="table-reserving.table-reserving-api.main" target="17" />
+      <module name="table-reserving.table-reserving-api.test" target="17" />
+      <module name="table-reserving.table-reserving-application" target="17" />
+      <module name="table-reserving.table-reserving-application.main" target="17" />
+      <module name="table-reserving.table-reserving-application.test" target="17" />
+      <module name="table-reserving.table-reserving.main" target="17" />
+      <module name="table-reserving.table-reserving.table-reserving-admin-api" target="17" />
+      <module name="table-reserving.table-reserving.table-reserving-admin-api.main" target="17" />
+      <module name="table-reserving.table-reserving.table-reserving-admin-api.test" target="17" />
+      <module name="table-reserving.table-reserving.table-reserving-api" target="17" />
+      <module name="table-reserving.table-reserving.table-reserving-api.main" target="17" />
+      <module name="table-reserving.table-reserving.table-reserving-api.test" target="17" />
+      <module name="table-reserving.table-reserving.table-reserving-application" target="17" />
+      <module name="table-reserving.table-reserving.table-reserving-application.main" target="17" />
+      <module name="table-reserving.table-reserving.table-reserving-application.test" target="17" />
+      <module name="table-reserving.table-reserving.test" target="17" />
+      <module name="table-reserving.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

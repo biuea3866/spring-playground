@@ -4,13 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="708778ce-113e-4410-80d6-6d0c0462f985" name="Changes" comment="" />
+    <list default="true" id="708778ce-113e-4410-80d6-6d0c0462f985" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/config/SecurityConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/config/SecurityConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/core/DomainEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/core/DomainEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/user/aggregate/UserAggregate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/user/aggregate/UserAggregate.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/design-pattern">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$/inflearn-basic">
       <ProjectState />
     </projectState>
@@ -30,6 +51,44 @@
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/table-reserving">
+      <ProjectState>
+        <dataType path="$PROJECT_DIR$/table-reserving">
+          <ModuleState>
+            <id value="com.intellij.externalSystem.JavaManifestData" />
+            <id value="com.intellij.externalSystem.JavaModuleData" />
+            <id value="com.intellij.externalSystem.JavaProjectData" />
+            <id value="com.intellij.externalSystem.MavenRepositoryData" />
+            <id value="com.intellij.openapi.externalSystem.model.project.ContentRootData" />
+            <id value="com.intellij.openapi.externalSystem.model.project.LibraryData" />
+            <id value="com.intellij.openapi.externalSystem.model.project.LibraryDependencyData" />
+            <id value="com.intellij.openapi.externalSystem.model.project.ModuleData" />
+            <id value="com.intellij.openapi.externalSystem.model.project.ModuleDependencyData" />
+            <id value="com.intellij.openapi.externalSystem.model.project.ModuleSdkData" />
+            <id value="com.intellij.openapi.externalSystem.model.project.ProjectData" />
+            <id value="com.intellij.openapi.externalSystem.model.project.ProjectSdkData" />
+            <id value="com.intellij.openapi.externalSystem.model.project.TestData" />
+            <id value="com.intellij.openapi.externalSystem.model.project.dependencies.ProjectDependencies" />
+            <id value="com.intellij.openapi.externalSystem.model.task.TaskData" />
+            <id value="com.intellij.openapi.externalSystem.service.project.ExternalSystemOperationDescriptor" />
+            <id value="org.jetbrains.kotlin.idea.gradle.configuration.KotlinGradleProjectData" />
+            <id value="org.jetbrains.kotlin.idea.gradle.configuration.KotlinGradleSourceSetData" />
+            <id value="org.jetbrains.kotlin.idea.gradleTooling.model.allopen.AllOpenModel" />
+            <id value="org.jetbrains.kotlin.idea.gradleTooling.model.assignment.AssignmentModel" />
+            <id value="org.jetbrains.kotlin.idea.gradleTooling.model.noarg.NoArgModel" />
+            <id value="org.jetbrains.kotlin.idea.gradleTooling.model.samWithReceiver.SamWithReceiverModel" />
+            <id value="org.jetbrains.plugins.gradle.model.DependencyAccessorsModel" />
+            <id value="org.jetbrains.plugins.gradle.model.ExternalProject" />
+            <id value="org.jetbrains.plugins.gradle.model.GradleExtensions" />
+            <id value="org.jetbrains.plugins.gradle.model.VersionCatalogsModel" />
+            <id value="org.jetbrains.plugins.gradle.model.data.BuildScriptClasspathData" />
+            <id value="org.jetbrains.plugins.gradle.model.data.GradleProjectBuildScriptData" />
+            <id value="org.jetbrains.plugins.gradle.model.data.GradleSourceSetData" />
+          </ModuleState>
+        </dataType>
+        <option name="isInclusion" value="true" />
+      </ProjectState>
+    </projectState>
+    <projectState path="$PROJECT_DIR$/table-reserving/table-reserving-admin-api">
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/table-reserving/table-reserving-api">
@@ -45,23 +104,29 @@
         <task path="$PROJECT_DIR$/platform/platform-infra">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/table-reserving">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/table-reserving/table-reserving-application">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/table-reserving/table-reserving-admin-api">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="platform" type="f1a62948:ProjectNode" />
+                <item name="spring-playground" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="platform" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="platform" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
+                <item name="spring-playground" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
             </expand>
             <select />
@@ -73,6 +138,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -82,6 +149,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="corretto-17 (2)" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -93,38 +167,53 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Build design-pattern.executor": "Run",
     "Gradle.platform-infra [build].executor": "Run",
+    "Gradle.table-reserving [build].executor": "Run",
+    "Gradle.table-reserving-admin-api::Users:biuea:spring-playground [build].executor": "Run",
+    "Gradle.table-reserving-application [bootTestRun].executor": "Run",
+    "Gradle.table-reserving-application [build].executor": "Run",
+    "Kotlin.CompositeAndVisitorKt.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feat/authentication",
     "jdk.selected.JAVA_MODULE": "corretto-17 (2)",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/biuea/spring-playground/platform",
+    "last_opened_file_path": "/Users/biuea/spring-playground/design-pattern/src/main/kotlin/com/biuea/designpattern",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/design-pattern/src/main/kotlin/com/biuea/designpattern" />
+      <recent name="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/restaurant/event" />
+      <recent name="$PROJECT_DIR$/table-reserving" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/platform" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/restaurant/aggregate" />
+      <recent name="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/reserving" />
+      <recent name="$PROJECT_DIR$/inflearn-basic" />
+      <recent name="$PROJECT_DIR$/table-reserving" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/platform/platform-api/src/main/kotlin/com/biuea/platform/domain" />
-      <recent name="$PROJECT_DIR$/platform/platform-api/src/main/kotlin/com/biuea/platform" />
-      <recent name="$PROJECT_DIR$/platform" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.platform-infra [build]">
-    <configuration name="platform-infra [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Kotlin.CompositeAndVisitorKt">
+    <configuration name="table-reserving [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform/platform-infra" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/table-reserving" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -142,6 +231,79 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>false</RunAsTest>
       <method v="2" />
+    </configuration>
+    <configuration name="table-reserving-admin-api::Users:biuea:spring-playground [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="table-reserving-application [bootTestRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/table-reserving/table-reserving-application" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootTestRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="table-reserving-application [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/table-reserving/table-reserving-application" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CompositeAndVisitorKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.biuea.designpattern.CompositeAndVisitorKt" />
+      <module name="design-pattern.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="spring-playground" />
@@ -189,8 +351,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TableReservingAdminApiApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="table-reserving.table-reserving-admin-api.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.biuea.tablereservingadminapi.TableReservingAdminApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableReservingAdminApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="spring-playground.table-reserving-admin-api.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.biuea.tablereservingadminapi.TableReservingAdminApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableReservingApiApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="spring-playground.table-reserving-api.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.biuea.tablereservingapi.TableReservingApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TableReservingApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="table-reserving-api.main" />
+      <module name="spring-playground.table-reserving-api.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.biuea.tablereservingapi.TableReservingApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -210,9 +393,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TableReservingAuthnApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="spring-playground.table-reserving-authn-api.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.biuea.tablereservingauthn.TableReservingAuthnApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.platform-infra [build]" />
+        <item itemvalue="Kotlin.CompositeAndVisitorKt" />
+        <item itemvalue="Gradle.table-reserving-admin-api::Users:biuea:spring-playground [build]" />
+        <item itemvalue="Gradle.table-reserving-application [bootTestRun]" />
+        <item itemvalue="Gradle.table-reserving-application [build]" />
+        <item itemvalue="Gradle.table-reserving [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -238,11 +432,16 @@
       <workItem from="1731422700010" duration="6088000" />
       <workItem from="1732012758484" duration="590000" />
       <workItem from="1732014688128" duration="594000" />
-      <workItem from="1732016484746" duration="6843000" />
+      <workItem from="1732016484746" duration="78163000" />
+      <workItem from="1733277830570" duration="8366000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
