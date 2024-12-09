@@ -1,9 +1,6 @@
 package com.biuea.tablereservingapplication.domain.restaurant.aggregate
 
-import com.biuea.tablereservingapplication.core.Aggregate
-import com.biuea.tablereservingapplication.core.DomainEvent
-import com.biuea.tablereservingapplication.core.DomainEventPublisher
-import com.biuea.tablereservingapplication.core.Id
+import com.biuea.tablereservingapplication.core.*
 import com.biuea.tablereservingapplication.domain.restaurant.event.CloseRestaurantEvent
 import com.biuea.tablereservingapplication.domain.restaurant.event.OpenRestaurantEvent
 import com.biuea.tablereservingapplication.domain.restaurant.event.OpenRestaurantEventPayload
@@ -227,6 +224,42 @@ class RestaurantAggregation private constructor(
                 _createdAt = ZonedDateTime.now(),
                 _updatedAt = ZonedDateTime.now(),
                 _deletedAt = null
+            )
+        }
+
+        fun JpaEntity.of(
+            id: Id,
+            name: String,
+            address: String,
+            phoneNumber: String,
+            description: String,
+            category: String,
+            status: RestaurantStatus,
+            ownerId: Id,
+            menus: List<Menu>,
+            restaurantCertificate: RestaurantCertificate?,
+            openedAt: ZonedDateTime?,
+            closedAt: ZonedDateTime?,
+            createdAt: ZonedDateTime,
+            updatedAt: ZonedDateTime,
+            deletedAt: ZonedDateTime?
+        ): RestaurantAggregation {
+            return RestaurantAggregation(
+                _id = id,
+                _name = name,
+                _address = address,
+                _phoneNumber = phoneNumber,
+                _description = description,
+                _category = category,
+                _status = status,
+                _ownerId = ownerId,
+                _menus = menus.toMutableList(),
+                _restaurantCertificate = restaurantCertificate,
+                _openedAt = openedAt,
+                _closedAt = closedAt,
+                _createdAt = createdAt,
+                _updatedAt = updatedAt,
+                _deletedAt = deletedAt
             )
         }
     }

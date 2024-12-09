@@ -36,5 +36,21 @@ data class RestaurantCertificate(
                 _deletedAt = null
             )
         }
+
+        fun of(
+            bucket: String,
+            key: String,
+            createdAt: ZonedDateTime,
+            updatedAt: ZonedDateTime,
+            deletedAt: ZonedDateTime?
+        ): RestaurantCertificate {
+            return RestaurantCertificate(
+                _bucket = bucket,
+                _key = key,
+                _createdAt = createdAt,
+                _updatedAt = updatedAt,
+                _deletedAt = deletedAt
+            )
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.biuea.tablereservingapplication.domain.restaurant.entity
 
 import com.biuea.tablereservingapplication.core.Id
+import com.biuea.tablereservingapplication.core.JpaEntity
 import com.biuea.tablereservingapplication.domain.restaurant.vo.MenuImage
 import java.time.ZonedDateTime
 
@@ -9,6 +10,7 @@ class Menu private constructor(
     private val _restaurantId: Id,
     private var _price: Int,
     private var _name: String,
+    private val _description: String,
     private val _menuImages: MutableList<MenuImage>,
     private val _createdAt: ZonedDateTime,
     private var _updatedAt: ZonedDateTime,
@@ -51,6 +53,7 @@ class Menu private constructor(
             restaurantId: Id,
             price: Int,
             name: String,
+            description: String,
             menuImages: List<MenuImage>
         ): Menu {
             return Menu(
@@ -58,10 +61,35 @@ class Menu private constructor(
                 _restaurantId = restaurantId,
                 _price = price,
                 _name = name,
+                _description = description,
                 _menuImages = menuImages.toMutableList(),
                 _createdAt = ZonedDateTime.now(),
                 _updatedAt = ZonedDateTime.now(),
                 _deletedAt = null
+            )
+        }
+
+        fun JpaEntity.of(
+            id: Id,
+            restaurantId: Id,
+            price: Int,
+            name: String,
+            description: String,
+            menuImages: List<MenuImage>,
+            createdAt: ZonedDateTime,
+            updatedAt: ZonedDateTime,
+            deletedAt: ZonedDateTime?
+        ): Menu {
+            return Menu(
+                _id = id,
+                _restaurantId = restaurantId,
+                _price = price,
+                _name = name,
+                _description = description,
+                _menuImages = menuImages.toMutableList(),
+                _createdAt = createdAt,
+                _updatedAt = updatedAt,
+                _deletedAt = deletedAt
             )
         }
     }
