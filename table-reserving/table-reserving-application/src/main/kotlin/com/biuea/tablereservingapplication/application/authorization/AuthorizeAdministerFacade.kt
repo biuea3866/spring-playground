@@ -7,19 +7,18 @@ import org.springframework.transaction.annotation.Transactional
 
 @Component
 class AuthorizeAdministerFacade(
-    private val userRepository: UserRepository
+    private val administerRepository: AdministerRepository
 ): AuthorizationPattern() {
     @Transactional(readOnly = true)
     override fun<T> execute(argument: T) {
         require(argument is AuthorizeAdministerInput) { throw IllegalArgumentException("Not supported") }
 
-        val user = userRepository.findById(argument.userId)
+        val administer = administerRepository.findById(argument.administerId)
             ?: throw IllegalArgumentException("User not found")
-        user.checkGranted(argument.grade)
+        administer.checkGranted()
     }
 }
 
 data class AuthorizeAdministerInput(
-    val userId: Long,
-    val grade: UserGrade
+    val administerId: Long
 )

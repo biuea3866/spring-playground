@@ -9,8 +9,6 @@ import org.springframework.transaction.annotation.Transactional
 class AuthorizePlatformUserFacade(
     private val userRepository: UserRepository
 ): AuthorizationPattern() {
-    override var type: PatternType = PatternType.PLATFORM_USER
-
     @Transactional(readOnly = true)
     override fun<T> execute(argument: T) {
         require(argument is AuthorizePlatformUserInput) { throw IllegalArgumentException("Not supported") }

@@ -7,17 +7,9 @@ import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
 
 abstract class AuthorizationPattern {
-    lateinit var authorizationType: AuthorizationType
-
     abstract fun<T> execute(argument: T)
 }
 
 inline fun<reified T: AuthorizationPattern> createContext(): AuthorizationPattern {
     return T::class.createInstance()
-}
-
-enum class AuthorizationType {
-    PLATFORM_USER,
-    ADMINISTER,
-    OWNER
 }

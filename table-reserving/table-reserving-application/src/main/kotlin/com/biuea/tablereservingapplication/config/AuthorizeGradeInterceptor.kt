@@ -42,12 +42,16 @@ class AuthorizeGradeInterceptor: HandlerInterceptor {
                     .execute(AuthorizePlatformUserInput(userId, availableGrade.grade))
             }
             request.contextPath.contains("/admin") -> {
-                val userId = request.getAttribute("administerId") as Long
-                val availableGrade = (handler as HandlerMethod).getMethodAnnotation(AuthorizeGrade::class.java)
-                    ?: throw HttpException.ForbiddenException("인가되지 않은 기능입니다.")
-                authorizationFactory.getPattern { AuthorizePlatformUserInput(userId, availableGrade.grade) }
+                val administerId = request.getAttribute("administerId") as Long
+                createContext<AuthorizeAdministerFacade>()
+                    .execute(AuthorizeAdministerInput(administerId))
             }
-            request.contextPath.contains("/owner") ->
+            request.contextPath.contains("/owner") -> {
+                val ownerId = request.getAttribute("ownerId") as Long
+                createContext<AuthorizeOwnerFacade>()
+                    .execute(AuthorizeOwnerInput(ownerId))
+            }
+            else -> throw HttpException.ForbiddenException("인가되지 않은 기능입니다.")
         }
     }
 
