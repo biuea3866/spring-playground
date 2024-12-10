@@ -11,10 +11,13 @@ tasks.withType<KotlinJvmCompile>().configureEach {
 
 dependencies {
     val springDocVersion: String by project
+    val springCloudApiGatewayVersion: String by project
 
     implementation("org.springdoc:springdoc-openapi-ui:$springDocVersion")
     implementation("org.springdoc:springdoc-openapi-kotlin:$springDocVersion")
 
+    implementation("org.springframework.cloud:spring-cloud-starter-gateway:$springCloudApiGatewayVersion")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
 
     implementation(project(":table-reserving-application"))
 }
