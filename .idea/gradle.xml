@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/table-reserving/table-reserving-api" />
             <option value="$PROJECT_DIR$/table-reserving/table-reserving-application" />
             <option value="$PROJECT_DIR$/table-reserving/table-reserving-authn-api" />
+            <option value="$PROJECT_DIR$/table-reserving/table-reserving-gateway" />
           </set>
         </option>
       </GradleProjectSettings>
