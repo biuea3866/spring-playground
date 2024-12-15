@@ -1,4 +1,4 @@
-package com.biuea.tablereservinggateway.config
+package com.biuea.tablereservingapplication.config
 
 import io.netty.channel.ChannelOption
 import io.netty.handler.timeout.ReadTimeoutHandler
