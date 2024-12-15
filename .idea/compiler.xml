@@ -18,6 +18,9 @@
       <module name="table-reserving-application" target="17" />
       <module name="table-reserving-application.main" target="17" />
       <module name="table-reserving-application.test" target="17" />
+      <module name="table-reserving-gateway" target="17" />
+      <module name="table-reserving-gateway.main" target="17" />
+      <module name="table-reserving-gateway.test" target="17" />
       <module name="table-reserving.main" target="17" />
       <module name="table-reserving.table-reserving" target="17" />
       <module name="table-reserving.table-reserving-admin-api" target="17" />
