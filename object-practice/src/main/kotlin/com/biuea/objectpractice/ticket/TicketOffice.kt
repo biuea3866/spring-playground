@@ -16,6 +16,10 @@ class TicketOffice private constructor(
         this.amount += amount
     }
 
+    fun sellTicketTo(audience: Audience) {
+        this.plusAmount(audience.buy(this.getTicket()))
+    }
+
     companion object {
         fun create(
             amount: Long,

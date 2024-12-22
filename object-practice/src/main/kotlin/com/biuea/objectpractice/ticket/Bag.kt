@@ -25,6 +25,17 @@ class Bag private constructor(
         this.amount -= amount
     }
 
+    fun hold(ticket: Ticket): Long {
+        if (hasInvitation()) {
+            mapBy(ticket)
+            return 0L
+        } else {
+            mapBy(ticket)
+            minus(ticket.fee)
+            return ticket.fee
+        }
+    }
+
     companion object {
         fun create(amount: Long): Bag {
             return Bag(

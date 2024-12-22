@@ -7,13 +7,7 @@ class Audience private constructor(
         ?: throw IllegalStateException("Bag is null")
 
     fun buy(ticket: Ticket): Long {
-        if (bag.hasInvitation()) {
-            bag.mapBy(ticket)
-            return 0L
-        } else {
-            bag.minus(ticket.fee)
-            return ticket.fee
-        }
+        return this.bag.hold(ticket)
     }
 
     companion object {
