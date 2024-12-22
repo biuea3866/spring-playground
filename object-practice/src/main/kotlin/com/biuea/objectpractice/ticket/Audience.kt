@@ -6,6 +6,16 @@ class Audience private constructor(
     val bag: Bag get() = this._bag
         ?: throw IllegalStateException("Bag is null")
 
+    fun buy(ticket: Ticket): Long {
+        if (bag.hasInvitation()) {
+            bag.mapBy(ticket)
+            return 0L
+        } else {
+            bag.minus(ticket.fee)
+            return ticket.fee
+        }
+    }
+
     companion object {
         fun create(bag: Bag): Audience {
             return Audience(bag)

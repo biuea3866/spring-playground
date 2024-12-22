@@ -3,16 +3,9 @@ package com.biuea.objectpractice.ticket
 class Theater private constructor(
     private val ticketSeller: TicketSeller
 ) {
+    // ticket seller에게 입장 로직을 위임한다.
     fun enter(audience: Audience) {
-        if (audience.bag.hasInvitation()) {
-            val ticket = ticketSeller.ticketOffice.getTicket()
-            audience.bag.mapBy(ticket)
-        } else {
-            val ticket = ticketSeller.ticketOffice.getTicket()
-            audience.bag.minus(ticket.fee)
-            ticketSeller.ticketOffice.plusAmount(ticket.fee)
-            audience.bag.mapBy(ticket)
-        }
+        ticketSeller.sellTo(audience)
     }
 
     companion object {
