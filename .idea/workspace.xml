@@ -126,7 +126,10 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="spring-playground" type="f1a62948:ProjectNode" />
+<<<<<<< Updated upstream
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+=======
+>>>>>>> Stashed changes
               </path>
             </expand>
             <select />
@@ -207,6 +210,9 @@
       <recent name="$PROJECT_DIR$/inflearn-basic" />
       <recent name="$PROJECT_DIR$/table-reserving" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.biuea.tablereservingapplication.config" />
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.CompositeAndVisitorKt">
@@ -400,6 +406,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TableReservingGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="spring-playground.table-reserving-gateway.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.biuea.tablereservinggateway.TableReservingGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.CompositeAndVisitorKt" />
@@ -434,6 +447,11 @@
       <workItem from="1732014688128" duration="594000" />
       <workItem from="1732016484746" duration="78163000" />
       <workItem from="1733277830570" duration="8366000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1734007039282" duration="819000" />
+      <workItem from="1734079626213" duration="18254000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
