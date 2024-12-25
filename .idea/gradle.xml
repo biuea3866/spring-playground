@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/object-practice" />
             <option value="$PROJECT_DIR$/table-reserving/table-reserving-admin-api" />
             <option value="$PROJECT_DIR$/table-reserving/table-reserving-api" />
             <option value="$PROJECT_DIR$/table-reserving/table-reserving-application" />
