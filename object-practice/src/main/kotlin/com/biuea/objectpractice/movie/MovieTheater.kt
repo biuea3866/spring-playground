@@ -14,23 +14,38 @@ class MovieTheater private constructor(
      * 영화 예매
      * @param movie 영화
      * @param screening 상영
-     * @param ticketHolder 티켓 소지자
+     * @param ticketHolders 티켓 소지자, 좌석
      */
     fun reserve(
         movie: Movie,
         screening: Screening,
-        ticketHolder: TicketHolder
-    ): Reservation {
-        val fee = movie.fee
-        val discountFee = movie.calculate()
-        val title = movie.title
+        ticketHolders: Set<TicketHolder>,
+        seats: Set<Seat>
+    ): Set<Reservation> {
+        checkTicketHolderAndSeatCount(ticketHolders, seats)
+        screening.checkAvailableScreening()
+        screening.checkAvailableReserve()
 
-        return Reservation.create(
-            screening = screening,
-            ticketHolder = ticketHolder,
-            originalFee = fee,
-            fee = discountFee,
-            title = title
-        )
+        return ticketHolders.zip(seats).map { (ticketHolder, seat) ->
+            screening.reserveSeat(seat)
+            val fee = movie.fee
+            val discountFee = movie.calculate()
+            val title = movie.title
+
+            Reservation.create(
+                screening = screening,
+                ticketHolder = ticketHolder,
+                originalFee = fee,
+                fee = discountFee,
+                title = title
+            )
+        }.toSet()
+    }
+
+    private fun checkTicketHolderAndSeatCount(
+        ticketHolders: Set<TicketHolder>,
+        seats: Set<Seat>
+    ) {
+        require(ticketHolders.size == seats.size) { "티켓 소지자와 좌석 수가 일치하지 않습니다." }
     }
 }
