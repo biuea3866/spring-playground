@@ -5,10 +5,6 @@ class TicketHolder private constructor(
 ) {
     val userId: Long get() = _userId
 
-    fun reserve(): Ticket {
-        return Ticket.create(this)
-    }
-
     companion object {
         fun create(userId: Long): TicketHolder {
             return TicketHolder(userId)

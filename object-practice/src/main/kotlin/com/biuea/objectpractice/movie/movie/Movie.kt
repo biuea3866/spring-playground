@@ -1,5 +1,7 @@
 package com.biuea.objectpractice.movie.movie
 
+import com.biuea.objectpractice.movie.screening.Screening
+
 /**
  * 영화
  */
@@ -7,20 +9,27 @@ class Movie private constructor(
     private var _title: String,
     private var _runningTime: Long,
     private var _fee: Long,
-    private var _discountPolicy: MovieDiscountPolicyFactory,
-    private var _rank: Int
+    private var _rank: Int,
+    val discountPolicy: MovieDiscountPolicy?
 ) {
     val title: String get() = _title
     val fee get() = _fee
     val rank get() = _rank
 
-    fun calculate(): Long {
-        this._discountPolicy.createPercentDiscountPolicy(0.1)
-        return _fee - _discountPolicy.calculate()
-    }
+    fun calculate(screening: Screening): Long {
+        if (discountPolicy == null) return this.fee
 
-    fun setMovieDiscountPolicy() {
-        _discountPolicy = MovieDiscountPolicyFactory.createAmountDiscountPolicy(1000)
+        when (this.discountPolicy) {
+            is PercentDiscountPolicy -> {
+                return this.discountPolicy.calculate(screening)
+            }
+            is AmountDiscountPolicy -> {
+                return this.discountPolicy.calculate(screening)
+            }
+            else -> {
+                return this.fee
+            }
+        }
     }
 
     companion object {
@@ -28,9 +37,8 @@ class Movie private constructor(
             title: String,
             runningTime: Long,
             fee: Long,
-            discountPolicy: DiscountPolicy
         ): Movie {
-            return Movie(title, runningTime, fee, discountPolicy)
+            return Movie(title, runningTime, fee, -1, null)
         }
     }
 }

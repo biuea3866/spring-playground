@@ -28,9 +28,18 @@ class Screening private constructor(
         _screeningDates.minus(screeningDate)
     }
 
+    fun isSequence(sequence: Int): Boolean {
+        return this._screeningDates.any { it.timeSlots.any { timeSlot -> timeSlot.sequence == sequence } }
+    }
+
     fun reserveSeat(seat: Seat) {
         this._seats.find { it.seatNumber == seat.seatNumber }?.complete()
             ?: throw IllegalArgumentException("해당 좌석이 존재하지 않습니다.")
+    }
+
+    fun retrieveFee(): Long {
+        return _movie?.fee
+            ?: throw IllegalArgumentException("영화가 등록되지 않았습니다.")
     }
 
     fun checkAvailableScreening() {
@@ -42,12 +51,6 @@ class Screening private constructor(
         require(_seats.isNotEmpty()) { "좌석이 등록되지 않았습니다." }
         require(_seats.none { it.isOccupied }) { "모든 좌석이 예약되었습니다." }
     }
-}
-
-// 데이터베이스의 쿼리로 처리해야한다.
-fun Set<Screening>.pick10ThScreeningOfToday(): Screening? {
-    return runCatching { this.filter { it.screeningDates.any { screeningDate -> screeningDate.date.dayOfYear == ZonedDateTime.now().dayOfYear } }[9] }
-        .getOrNull()
 }
 
 class Seat private constructor(
@@ -79,9 +82,11 @@ class ScreeningDate private constructor(
 
 class TimeSlot private constructor(
     private var _sequence: Int,
-    private var _startTime: ZonedDateTime
+    private var _startTime: ZonedDateTime,
+    private var _endTime: ZonedDateTime
 ) {
     val sequence get() = _sequence
     val startTime get() = _startTime
+    val endTime get() = _endTime
 }
 

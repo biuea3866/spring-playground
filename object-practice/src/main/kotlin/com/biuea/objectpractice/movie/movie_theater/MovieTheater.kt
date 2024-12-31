@@ -41,8 +41,8 @@ class MovieTheater private constructor(
             Reservation.create(
                 screening = screening,
                 ticketHolder = ticketHolder,
-                originalFee = fee,
-                fee = discountFee,
+                amount = fee,
+                discountFee = discountFee,
                 title = title
             )
         }.toSet()

@@ -1,11 +1,9 @@
 package com.biuea.objectpractice.movie.movie_theater
 
-import com.biuea.objectpractice.movie.movie.DiscountConditionType
 import com.biuea.objectpractice.movie.screening.Screening
 import com.biuea.objectpractice.movie.screening.Seat
 import com.biuea.objectpractice.movie.ticket_holder.TicketHolder
 import com.biuea.objectpractice.movie.movie.Movie
-import com.biuea.objectpractice.movie.movie.MovieDiscountPolicyType
 import com.biuea.objectpractice.movie.movie.MovieRepository
 import org.springframework.stereotype.Service
 
@@ -36,10 +34,5 @@ class MovieTheaterService(
         val screening: Screening,
         val ticketHolders: Set<TicketHolder>,
         val seats: Set<Seat>
-    )
-
-    data class DecideMovieDiscountPolicyDTO(
-        val discountPolicyType: MovieDiscountPolicyType,
-        val discountConditionType: DiscountConditionType
     )
 }

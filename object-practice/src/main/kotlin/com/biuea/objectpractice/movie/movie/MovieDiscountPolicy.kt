@@ -1,58 +1,100 @@
 package com.biuea.objectpractice.movie.movie
 
+import com.biuea.objectpractice.movie.screening.Screening
+import java.time.DayOfWeek
 import java.time.ZonedDateTime
 
-enum class MovieDiscountPolicyType {
-    AMOUNT,
-    PERCENT
-}
-
-enum class DiscountConditionType {
-    SEQUENCE,
-    PERIOD
-}
-
-class MovieDiscountPolicyFactory {
-    fun createAmountDiscountPolicy(amount: Long): MovieDiscountPolicy {
-        return SequenceDiscountPolicy(amount)
+class MovieDiscountPolicyFactory(
+    val discountPolicy: MovieDiscountPolicy
+) {
+    fun calculate(screening: Screening): Long {
+        return 0L
     }
 
-    fun createPercentDiscountPolicy(percent: Double): MovieDiscountPolicy {
-        return PeriodDiscountPolicy(percent)
+    companion object {
+        fun createPercentDiscountPolicy(
+            percent: Double,
+            discountConditions: MutableSet<DiscountCondition>
+        ): PercentDiscountPolicy {
+            return PercentDiscountPolicy(percent, discountConditions)
+        }
+
+        fun createAmountDiscountPolicy(
+            amount: Long,
+            discountConditions: MutableSet<DiscountCondition>
+        ): AmountDiscountPolicy {
+            return AmountDiscountPolicy(amount, discountConditions)
+        }
     }
 }
 
 abstract class MovieDiscountPolicy(
-    val discountConditions: MutableSet<DiscountCondition>
+    private val _discountConditions: MutableSet<DiscountCondition>
 ) {
-    lateinit var discountPolicyType: MovieDiscountPolicyType
+    val discountConditions: Set<DiscountCondition> get() = _discountConditions
 
-    fun setDiscountConditions() {
-        this.discountConditions.addAll(discountConditions)
+    fun addDiscountCondition(discountCondition: MutableSet<DiscountCondition>) {
+        _discountConditions.addAll(discountCondition)
     }
 
-    protected abstract fun calculate(): Long
+    // 영화의 할인 금액을 계산한다.
+    fun calculate(screening: Screening): Long {
+        // 등록된 할인 조건들을 순회하여 만족하는 조건이 있으면 할인 금액을 반환한다.
+        for (discountCondition in discountConditions) {
+            if (discountCondition.isSatisfiedBy(screening)) {
+                return getDiscountAmount(screening)
+            }
+        }
+
+        return 0L
+    }
+
+    // 각 할인 정책 구현체에서 할인 금액을 반환한다.
+    abstract fun getDiscountAmount(screening: Screening): Long
 }
 
-class SequenceDiscountPolicy(
-    discountConditions: MutableSet<DiscountCondition>,
-    private val sequence: Int
+class PercentDiscountPolicy(
+    val percent: Double,
+    discountConditions: MutableSet<DiscountCondition>
 ) : MovieDiscountPolicy(discountConditions) {
-    override fun calculate(): Long {
-        return 0L
+    override fun getDiscountAmount(screening: Screening): Long {
+        return screening.retrieveFee().times(percent).toLong()
     }
 }
 
-class PeriodDiscountPolicy(
-    discountConditions: MutableSet<DiscountCondition>,
-    private val startDate: ZonedDateTime,
-    private val endDate: ZonedDateTime,
-    private val dayOfWeek: Int
+class AmountDiscountPolicy(
+    val amount: Long,
+    discountConditions: MutableSet<DiscountCondition>
 ) : MovieDiscountPolicy(discountConditions) {
-    override fun calculate(): Long {
-        return 0L
+    override fun getDiscountAmount(screening: Screening): Long {
+        return screening.retrieveFee().minus(amount)
     }
 }
 
 interface DiscountCondition {
+    fun isSatisfiedBy(screening: Screening): Boolean
+}
+
+class SequenceDisCountCondition(
+    val sequence: Int
+) : DiscountCondition {
+    override fun isSatisfiedBy(screening: Screening): Boolean {
+        return screening.isSequence(sequence)
+    }
+}
+
+class PeriodDiscountCondition(
+    val dayOfWeek: DayOfWeek,
+    val startTime: ZonedDateTime,
+    val endTime: ZonedDateTime
+) : DiscountCondition {
+    override fun isSatisfiedBy(screening: Screening): Boolean {
+        return screening.screeningDates.any {
+            it.date.dayOfWeek == dayOfWeek &&
+            it.timeSlots.any { timeSlot ->
+                timeSlot.startTime >= startTime &&
+                timeSlot.endTime <= endTime
+            }
+        }
+    }
 }
