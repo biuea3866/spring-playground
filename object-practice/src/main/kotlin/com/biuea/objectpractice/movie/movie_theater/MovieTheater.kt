@@ -1,4 +1,10 @@
-package com.biuea.objectpractice.movie
+package com.biuea.objectpractice.movie.movie_theater
+
+import com.biuea.objectpractice.movie.reservation.Reservation
+import com.biuea.objectpractice.movie.screening.Screening
+import com.biuea.objectpractice.movie.screening.Seat
+import com.biuea.objectpractice.movie.ticket_holder.TicketHolder
+import com.biuea.objectpractice.movie.movie.Movie
 
 /**
  * 영화관

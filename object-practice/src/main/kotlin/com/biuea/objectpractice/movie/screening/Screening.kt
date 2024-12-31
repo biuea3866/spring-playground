@@ -1,5 +1,6 @@
-package com.biuea.objectpractice.movie
+package com.biuea.objectpractice.movie.screening
 
+import com.biuea.objectpractice.movie.movie.Movie
 import java.time.ZonedDateTime
 
 /**
@@ -43,6 +44,12 @@ class Screening private constructor(
     }
 }
 
+// 데이터베이스의 쿼리로 처리해야한다.
+fun Set<Screening>.pick10ThScreeningOfToday(): Screening? {
+    return runCatching { this.filter { it.screeningDates.any { screeningDate -> screeningDate.date.dayOfYear == ZonedDateTime.now().dayOfYear } }[9] }
+        .getOrNull()
+}
+
 class Seat private constructor(
     private var _seatNumber: String,
     private var _isOccupied: Boolean,
@@ -77,3 +84,4 @@ class TimeSlot private constructor(
     val sequence get() = _sequence
     val startTime get() = _startTime
 }
+

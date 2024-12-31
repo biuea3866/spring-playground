@@ -1,4 +1,4 @@
-package com.biuea.objectpractice.movie
+package com.biuea.objectpractice.movie.ticket_holder
 
 class TicketHolder private constructor(
     val _userId: Long
