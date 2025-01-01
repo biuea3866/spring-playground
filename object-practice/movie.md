@@ -48,3 +48,25 @@
   * 예매 정보를 가진다.
   * 상영관과 예매자를 연결해준다.
 * TicketHolder: 예매자를 나타내는 객체이다.
+
+---
+
+## 책 예제
+![order_practice1.png](../image/order_practice1.png)
+
+* Movie: 영화
+  * 제목, 상영시간, 기본 요금, 할인 정책을 인스턴스 변수로 갖는다.
+* Screening: 상영
+  * 사용자들이 예매하는 대상이다.
+  * 상영할 영화, 순번, 상영 시작 시간을 인스턴스 변수로 갖는다.
+  * 상영 시작 시간을 반환하는 행위
+  * 순번의 일치 여부를 검사하는 행위
+  * 기본 요금을 반환하는 행위
+* DiscountPolicy: 할인 정책
+  * AmountDiscountPolicy: 금액 할인 정책
+  * PercentDiscountPolicy: 비율 할인 정책
+* DiscountCondition: 할인 조건
+  * SequenceCondition: 순번 조건
+  * PeriodCondition: 기간 조건
+* Reservation: 예매
+  * 고객, 상영 정보, 예매 요금, 인원 수를 인스턴스 변수로 갖는다.
