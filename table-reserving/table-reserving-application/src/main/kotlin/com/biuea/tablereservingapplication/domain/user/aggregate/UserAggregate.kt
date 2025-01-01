@@ -43,7 +43,7 @@ class UserAggregate private constructor(
         require(this._phoneNumber.isNotEmpty()) { "전화번호는 필수입니다." }
         require(this._nickname.length >= 2) { "닉네임은 2자 이상이어야 합니다." }
 
-        publish()
+//        publish()
 
         return this
     }

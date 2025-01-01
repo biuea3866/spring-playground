@@ -9,9 +9,3 @@ fun interface Converter<T, R> {
 inline fun <reified T, R> Converter<T, R>.convert(source: T): R {
     return this.convert(source)
 }
-
-object StringToZonedDateTimeConverter: Converter<String, ZonedDateTime> {
-    override fun convert(source: String): ZonedDateTime {
-        return source
-    }
-}

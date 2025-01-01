@@ -16,7 +16,7 @@ class HardWorker: Worker() {
     }
 }
 
-fun main() {
+fun execute() {
     // Worker의 인스턴스가 생성된다.
     // 단, Runnable 포인터를 가질 수 있다.
     var worker: Runnable = Worker()

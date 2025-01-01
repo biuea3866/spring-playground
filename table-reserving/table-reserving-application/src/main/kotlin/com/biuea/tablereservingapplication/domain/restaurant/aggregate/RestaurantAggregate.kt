@@ -2,7 +2,6 @@ package com.biuea.tablereservingapplication.domain.restaurant.aggregate
 
 import com.biuea.tablereservingapplication.core.Aggregate
 import com.biuea.tablereservingapplication.core.DomainEvent
-import com.biuea.tablereservingapplication.core.DomainEventPublisher
 import com.biuea.tablereservingapplication.core.Id
 import com.biuea.tablereservingapplication.domain.restaurant.event.CloseRestaurantEvent
 import com.biuea.tablereservingapplication.domain.restaurant.event.OpenRestaurantEvent

@@ -63,81 +63,81 @@ class ReservingAggregate private constructor(
         false -> null
     }
 
-    fun reserve(
-        publish: (DomainEvent) -> Unit
-    ): ReservingAggregate {
-        require(this.status in ReservingStatus.availableReserving())
-
-        this._reservedAt = ZonedDateTime.now()
-        this._status = ReservingStatus.RESERVED
-        this._updatedAt = ZonedDateTime.now()
-
-        publish(
-            ReservedEvent(
-                event = "event.reserving.reserved",
-                payload = payload
-            )
-        )
-
-        return this
-    }
-
-    fun cancel(
-        publish: (DomainEvent) -> Unit,
-        payload: DomainEventPayload
-    ): ReservingAggregate {
-        require(payload is CancelledEventPayload) { "Payload type mismatch" }
-
-        this._status = ReservingStatus.CANCELLED
-        this._updatedAt = ZonedDateTime.now()
-
-        publish(
-            DomainEvent.build(
-                event = "event.reserving.cancelled",
-                payload = payload
-            )
-        )
-
-        return this
-    }
-
-    fun entrance(
-        publish: (DomainEvent) -> Unit,
-        payload: DomainEventPayload
-    ): ReservingAggregate {
-        require(payload is ReservedEventPayload) { "Payload type mismatch" }
-
-        this._status = ReservingStatus.RESERVED
-        this._updatedAt = ZonedDateTime.now()
-
-        publish(
-            DomainEvent.build(
-                event = "event.reserving.entrance",
-                payload = payload
-            )
-        )
-
-        return this
-    }
-
-    fun exit(
-        publish: (DomainEvent) -> Unit,
-        payload: DomainEventPayload
-    ): ReservingAggregate {
-        require(payload is ReservedEventPayload) { "Payload type mismatch" }
-
-        this._status = ReservingStatus.RESERVED
-        this._updatedAt = ZonedDateTime.now()
-
-        publish(
-            DomainEvent.build(
-                event = "event.reserving.exit",
-                payload = payload
-            )
-        )
-
-        return this
-    }
+//    fun reserve(
+//        publish: (DomainEvent) -> Unit
+//    ): ReservingAggregate {
+//        require(this.status in ReservingStatus.availableReserving())
+//
+//        this._reservedAt = ZonedDateTime.now()
+//        this._status = ReservingStatus.RESERVED
+//        this._updatedAt = ZonedDateTime.now()
+//
+//        publish(
+//            ReservedEvent(
+//                event = "event.reserving.reserved",
+//                payload = payload
+//            )
+//        )
+//
+//        return this
+//    }
+//
+//    fun cancel(
+//        publish: (DomainEvent) -> Unit,
+//        payload: DomainEventPayload
+//    ): ReservingAggregate {
+//        require(payload is CancelledEventPayload) { "Payload type mismatch" }
+//
+//        this._status = ReservingStatus.CANCELLED
+//        this._updatedAt = ZonedDateTime.now()
+//
+//        publish(
+//            DomainEvent.build(
+//                event = "event.reserving.cancelled",
+//                payload = payload
+//            )
+//        )
+//
+//        return this
+//    }
+//
+//    fun entrance(
+//        publish: (DomainEvent) -> Unit,
+//        payload: DomainEventPayload
+//    ): ReservingAggregate {
+//        require(payload is ReservedEventPayload) { "Payload type mismatch" }
+//
+//        this._status = ReservingStatus.RESERVED
+//        this._updatedAt = ZonedDateTime.now()
+//
+//        publish(
+//            DomainEvent.build(
+//                event = "event.reserving.entrance",
+//                payload = payload
+//            )
+//        )
+//
+//        return this
+//    }
+//
+//    fun exit(
+//        publish: (DomainEvent) -> Unit,
+//        payload: DomainEventPayload
+//    ): ReservingAggregate {
+//        require(payload is ReservedEventPayload) { "Payload type mismatch" }
+//
+//        this._status = ReservingStatus.RESERVED
+//        this._updatedAt = ZonedDateTime.now()
+//
+//        publish(
+//            DomainEvent.build(
+//                event = "event.reserving.exit",
+//                payload = payload
+//            )
+//        )
+//
+//        return this
+//    }
 
     fun addMenu(menu: MenuInfo): ReservingAggregate {
         this._menuInfos.add(menu)

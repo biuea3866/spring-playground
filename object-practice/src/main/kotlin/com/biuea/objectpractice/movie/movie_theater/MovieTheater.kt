@@ -35,7 +35,7 @@ class MovieTheater private constructor(
         return ticketHolders.zip(seats).map { (ticketHolder, seat) ->
             screening.reserveSeat(seat)
             val fee = movie.fee
-            val discountFee = movie.calculate()
+            val discountFee = movie.calculate(screening)
             val title = movie.title
 
             Reservation.create(
