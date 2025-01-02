@@ -34,7 +34,18 @@ allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
+        gradlePluginPortal()
         maven("https://jitpack.io")
+        maven("https://repo.spring.io/snapshot")
+        maven("https://repo.spring.io/milestone")
+    }
+}
+
+val springCloudVersion: String by project
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
     }
 }
 

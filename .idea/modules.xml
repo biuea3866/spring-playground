@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/object-practice/object-practice.iml" filepath="$PROJECT_DIR$/object-practice/object-practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/platform/platform-worker/platform-worker.iml" filepath="$PROJECT_DIR$/platform/platform-worker/platform-worker.iml" />
       <module fileurl="file://$PROJECT_DIR$/table-reserving/table-reserving-authn-api/table-reserving-authn-api.iml" filepath="$PROJECT_DIR$/table-reserving/table-reserving-authn-api/table-reserving-authn-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/table-reserving/table-reserving-gateway/table-reserving-gateway.iml" filepath="$PROJECT_DIR$/table-reserving/table-reserving-gateway/table-reserving-gateway.iml" />
     </modules>
   </component>
 </project>

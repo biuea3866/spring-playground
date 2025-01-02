@@ -11,14 +11,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/config/SecurityConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/config/SecurityConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/core/DomainEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/core/DomainEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/user/aggregate/UserAggregate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/table-reserving/table-reserving-application/src/main/kotlin/com/biuea/tablereservingapplication/domain/user/aggregate/UserAggregate.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +91,9 @@
     <projectState path="$PROJECT_DIR$/table-reserving/table-reserving-application">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/table-reserving/table-reserving-gateway">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -130,6 +127,11 @@
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
 =======
 >>>>>>> Stashed changes
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="spring-playground" type="f1a62948:ProjectNode" />
+                <item name="table-reserving-authn-api" type="2d1252cf:ModuleNode" />
               </path>
             </expand>
             <select />
@@ -168,34 +170,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build design-pattern.executor": "Run",
-    "Gradle.platform-infra [build].executor": "Run",
-    "Gradle.table-reserving [build].executor": "Run",
-    "Gradle.table-reserving-admin-api::Users:biuea:spring-playground [build].executor": "Run",
-    "Gradle.table-reserving-application [bootTestRun].executor": "Run",
-    "Gradle.table-reserving-application [build].executor": "Run",
-    "Kotlin.CompositeAndVisitorKt.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feat/authentication",
-    "jdk.selected.JAVA_MODULE": "corretto-17 (2)",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/biuea/spring-playground/design-pattern/src/main/kotlin/com/biuea/designpattern",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build design-pattern.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.platform-infra [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.table-reserving [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.table-reserving-admin-api::Users:biuea:spring-playground [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.table-reserving-application [bootTestRun].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.table-reserving-application [build].executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.CompositeAndVisitorKt.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;spring-gateway&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17 (2)&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/biuea/spring-playground/design-pattern/src/main/kotlin/com/biuea/designpattern&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/design-pattern/src/main/kotlin/com/biuea/designpattern" />
@@ -322,6 +324,13 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
+    <configuration name="DesignPatternApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="design-pattern.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.biuea.designpattern.DesignPatternApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="InflearnBasicApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="inflearn-basic.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.biuea.inflearnbasic.InflearnBasicApplication" />
@@ -447,11 +456,8 @@
       <workItem from="1732014688128" duration="594000" />
       <workItem from="1732016484746" duration="78163000" />
       <workItem from="1733277830570" duration="8366000" />
-<<<<<<< Updated upstream
-=======
       <workItem from="1734007039282" duration="819000" />
       <workItem from="1734079626213" duration="18254000" />
->>>>>>> Stashed changes
     </task>
     <servers />
   </component>
