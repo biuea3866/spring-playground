@@ -1,16 +1,17 @@
 package com.biuea.objectpractice.movie.movie
 
 import com.biuea.objectpractice.movie.screening.Screening
+import com.biuea.objectpractice.movie_practice.DiscountPolicy
 
 /**
  * 영화
  */
-class Movie private constructor(
+class Movie<T: MovieDiscountPolicy> private constructor(
     private var _title: String,
     private var _runningTime: Long,
     private var _fee: Long,
     private var _rank: Int,
-    val discountPolicy: MovieDiscountPolicy?
+    val discountPolicy: T
 ) {
     val title: String get() = _title
     val fee get() = _fee
@@ -33,12 +34,13 @@ class Movie private constructor(
     }
 
     companion object {
-        fun create(
+        fun<T: MovieDiscountPolicy> create(
             title: String,
             runningTime: Long,
             fee: Long,
-        ): Movie {
-            return Movie(title, runningTime, fee, -1, null)
+            discountPolicy: T
+        ): Movie<T> {
+            return Movie(title, runningTime, fee, -1, discountPolicy)
         }
     }
 }
