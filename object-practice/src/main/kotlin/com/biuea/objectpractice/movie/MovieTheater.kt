@@ -1,17 +1,11 @@
-package com.biuea.objectpractice.movie.movie_theater
-
-import com.biuea.objectpractice.movie.reservation.Reservation
-import com.biuea.objectpractice.movie.screening.Screening
-import com.biuea.objectpractice.movie.screening.Seat
-import com.biuea.objectpractice.movie.ticket_holder.TicketHolder
-import com.biuea.objectpractice.movie.movie.Movie
+package com.biuea.objectpractice.movie
 
 /**
  * 영화관
  */
 class MovieTheater private constructor(
-    private var _movies: Set<Movie>,
-    private var _screenings: Set<Screening>
+    private var _movies: MutableSet<Movie<MovieDiscountPolicy>>,
+    private var _screenings: MutableSet<Screening>
 ) {
     val movies get() = _movies
     val screenings get() = _screenings
@@ -23,7 +17,7 @@ class MovieTheater private constructor(
      * @param ticketHolders 티켓 소지자, 좌석
      */
     fun reserve(
-        movie: Movie,
+        movie: Movie<MovieDiscountPolicy>,
         screening: Screening,
         ticketHolders: Set<TicketHolder>,
         seats: Set<Seat>
@@ -35,7 +29,7 @@ class MovieTheater private constructor(
         return ticketHolders.zip(seats).map { (ticketHolder, seat) ->
             screening.reserveSeat(seat)
             val fee = movie.fee
-            val discountFee = movie.calculate(screening)
+            val discountFee = movie.calculate(screening, ticketHolders.count())
             val title = movie.title
 
             Reservation.create(
@@ -46,6 +40,23 @@ class MovieTheater private constructor(
                 title = title
             )
         }.toSet()
+    }
+
+    /**
+     * 영화관 오픈
+     * 날마다 오픈이 되며 영화관, 상영관의 객체가 변경된다.
+     */
+    fun open(
+        movies: Set<Movie<MovieDiscountPolicy>>,
+        screenings: Set<Screening>
+    ) {
+        _screenings.addAll(screenings)
+        _movies.addAll(movies)
+    }
+
+    fun close() {
+        this._screenings.clear()
+        this._movies.clear()
     }
 
     private fun checkTicketHolderAndSeatCount(

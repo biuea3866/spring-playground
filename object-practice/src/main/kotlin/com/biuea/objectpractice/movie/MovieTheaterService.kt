@@ -1,10 +1,5 @@
-package com.biuea.objectpractice.movie.movie_theater
+package com.biuea.objectpractice.movie
 
-import com.biuea.objectpractice.movie.screening.Screening
-import com.biuea.objectpractice.movie.screening.Seat
-import com.biuea.objectpractice.movie.ticket_holder.TicketHolder
-import com.biuea.objectpractice.movie.movie.Movie
-import com.biuea.objectpractice.movie.movie.MovieRepository
 import org.springframework.stereotype.Service
 
 @Service
@@ -24,13 +19,13 @@ class MovieTheaterService(
 
     }
 
-    fun getMovies(): List<Movie> {
+    fun getMovies(): List<MovieDiscountPolicy> {
         return movieRepository.getMovies()
     }
 
     data class ReserveDTO(
         val movieTheater: MovieTheater,
-        val movie: Movie,
+        val movie: MovieDiscountPolicy,
         val screening: Screening,
         val ticketHolders: Set<TicketHolder>,
         val seats: Set<Seat>

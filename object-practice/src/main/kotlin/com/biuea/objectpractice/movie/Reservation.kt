@@ -1,15 +1,13 @@
-package com.biuea.objectpractice.movie.reservation
+package com.biuea.objectpractice.movie
 
-import com.biuea.objectpractice.movie.screening.Screening
-import com.biuea.objectpractice.movie.ticket_holder.TicketHolder
 import java.time.ZonedDateTime
 
 class Reservation private constructor(
     val id: Long,
     private var _screening: Screening,
     private var _ticketHolder: TicketHolder,
-    private var _amount: Long,
-    private var _discountFee: Long,
+    private var _amount: Money,
+    private var _discountFee: Money,
     private var _title: String,
     val reservedAt: ZonedDateTime,
 ) {
@@ -23,8 +21,8 @@ class Reservation private constructor(
         fun create(
             screening: Screening,
             ticketHolder: TicketHolder,
-            amount: Long,
-            discountFee: Long,
+            amount: Money,
+            discountFee: Money,
             title: String,
         ): Reservation {
             return Reservation(

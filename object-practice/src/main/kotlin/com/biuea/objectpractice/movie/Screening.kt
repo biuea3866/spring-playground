@@ -1,6 +1,5 @@
-package com.biuea.objectpractice.movie.screening
+package com.biuea.objectpractice.movie
 
-import com.biuea.objectpractice.movie.movie.Movie
 import java.time.ZonedDateTime
 
 /**
@@ -9,14 +8,15 @@ import java.time.ZonedDateTime
  * @property _screeningDates 상영일
  */
 class Screening private constructor(
-    private var _movie: Movie?,
+    private var _movie: Movie<MovieDiscountPolicy>?,
     private var _screeningDates: Set<ScreeningDate>,
-    private var _seats: Set<Seat>
+    private var _seats: Set<Seat>,
+    private var _sequence: Int
 ) {
     val movie get() = _movie
     val screeningDates get() = _screeningDates
 
-    fun registerMovie(movie: Movie) {
+    fun registerMovie(movie: Movie<MovieDiscountPolicy>) {
         _movie = movie
     }
 
@@ -50,6 +50,17 @@ class Screening private constructor(
     fun checkAvailableReserve() {
         require(_seats.isNotEmpty()) { "좌석이 등록되지 않았습니다." }
         require(_seats.none { it.isOccupied }) { "모든 좌석이 예약되었습니다." }
+    }
+
+    companion object {
+        fun create(
+            movie: Movie<MovieDiscountPolicy>,
+            screeningDates: Set<ScreeningDate>,
+            seats: Set<Seat>,
+            sequence: Int
+        ): Screening {
+            return Screening(movie, screeningDates, seats, sequence)
+        }
     }
 }
 

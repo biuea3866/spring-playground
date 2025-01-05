@@ -1,6 +1,6 @@
-package com.biuea.objectpractice.movie_practice
+package com.biuea.objectpractice.movie
 
-internal data class Money(
+data class Money(
     val amount: Long
 ) {
     fun plus(amount: Money): Money {
