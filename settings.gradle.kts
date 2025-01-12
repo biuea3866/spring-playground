@@ -29,6 +29,7 @@ include(
     ":table-reserving-application",
     ":table-reserving-authn-api",
     ":table-reserving-gateway"
+    ":object-practice"
 //    ":platform-domain",
 //    ":platform-infra"
 )
@@ -37,6 +38,6 @@ project(":table-reserving-admin-api").projectDir = file("table-reserving/table-r
 project(":table-reserving-api").projectDir = file("table-reserving/table-reserving-api")
 project(":table-reserving-application").projectDir = file("table-reserving/table-reserving-application")
 project(":table-reserving-authn-api").projectDir = file("table-reserving/table-reserving-authn-api")
-project(":table-reserving-gateway").projectDir = file("table-reserving/table-reserving-gateway")
+project(":object-practice").projectDir = file("object-practice")
 //project(":platform-domain").projectDir = file("platform/platform-domain")
 //project(":platform-infra").projectDir = file("platform/platform-infra")

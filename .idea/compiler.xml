@@ -8,6 +8,9 @@
       <module name="spring-playground.platform-infra" target="17" />
       <module name="spring-playground.platform-infra.main" target="17" />
       <module name="spring-playground.platform-infra.test" target="17" />
+      <module name="spring-playground.table-reserving-gateway" target="17" />
+      <module name="spring-playground.table-reserving-gateway.main" target="17" />
+      <module name="spring-playground.table-reserving-gateway.test" target="17" />
       <module name="table-reserving" target="17" />
       <module name="table-reserving-admin-api" target="17" />
       <module name="table-reserving-admin-api.main" target="17" />
