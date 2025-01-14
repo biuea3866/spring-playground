@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/table-reserving/api-server/api-server.iml" filepath="$PROJECT_DIR$/table-reserving/api-server/api-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpa-application/jpa-application.iml" filepath="$PROJECT_DIR$/jpa-application/jpa-application.iml" />
       <module fileurl="file://$PROJECT_DIR$/object-practice/object-practice.iml" filepath="$PROJECT_DIR$/object-practice/object-practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/platform/platform-worker/platform-worker.iml" filepath="$PROJECT_DIR$/platform/platform-worker/platform-worker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/object-practice/spring-playground.object-practice.iml" filepath="$PROJECT_DIR$/.idea/modules/object-practice/spring-playground.object-practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/object-practice/spring-playground.object-practice.main.iml" filepath="$PROJECT_DIR$/.idea/modules/object-practice/spring-playground.object-practice.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/object-practice/spring-playground.object-practice.test.iml" filepath="$PROJECT_DIR$/.idea/modules/object-practice/spring-playground.object-practice.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/table-reserving/table-reserving-authn-api/table-reserving-authn-api.iml" filepath="$PROJECT_DIR$/table-reserving/table-reserving-authn-api/table-reserving-authn-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/table-reserving/table-reserving-gateway/table-reserving-gateway.iml" filepath="$PROJECT_DIR$/table-reserving/table-reserving-gateway/table-reserving-gateway.iml" />
     </modules>
   </component>
 </project>

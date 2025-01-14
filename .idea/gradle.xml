@@ -10,11 +10,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/object-practice" />
+            <option value="$PROJECT_DIR$/table-reserving-gateway" />
             <option value="$PROJECT_DIR$/table-reserving/table-reserving-admin-api" />
             <option value="$PROJECT_DIR$/table-reserving/table-reserving-api" />
             <option value="$PROJECT_DIR$/table-reserving/table-reserving-application" />
             <option value="$PROJECT_DIR$/table-reserving/table-reserving-authn-api" />
-            <option value="$PROJECT_DIR$/table-reserving/table-reserving-gateway" />
           </set>
         </option>
       </GradleProjectSettings>
