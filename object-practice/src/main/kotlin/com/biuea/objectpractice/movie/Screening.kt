@@ -37,7 +37,7 @@ class Screening private constructor(
             ?: throw IllegalArgumentException("해당 좌석이 존재하지 않습니다.")
     }
 
-    fun retrieveFee(): Long {
+    fun retrieveFee(): Money {
         return _movie?.fee
             ?: throw IllegalArgumentException("영화가 등록되지 않았습니다.")
     }

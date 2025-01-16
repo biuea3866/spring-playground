@@ -1,5 +1,6 @@
 package com.biuea.tablereservingapplication.application.authorization
 
+import com.biuea.tablereservingapplication.domain.administer.AdministerRepository
 import com.biuea.tablereservingapplication.domain.user.aggregate.UserGrade
 import com.biuea.tablereservingapplication.domain.user.repository.UserRepository
 import org.springframework.stereotype.Component
