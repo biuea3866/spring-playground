@@ -11,12 +11,34 @@ class SalarySystem {
     )
 
     // 직원의 급여를 계산한다.
-    fun main() {
+    fun main(type: String) {
         printRequestTaxRate(0.1)
-        calculateSalary(
-            getSalary(1L).salary,
-            taxRateTable[2025]?: throw IllegalArgumentException("세율이 입력되지 않았습니다.")
-        )
+
+        // 전체 직원 급여 계산이 추가됨에 따라
+        // 최상위 클라이언트에서 각 직원의 급여를 계산하는 방법, 전체 직원 급여를 계산하는 방법을 정의한다.
+        when (type) {
+            "all" -> calculateAllSalary()
+            "each" -> calculateEachSalary()
+        }
+    }
+
+    fun calculateAllSalary() {
+        var totalSalary = 0
+        this.employeeTable.forEach { employeeId, Employee ->
+            totalSalary += calculateSalary(
+                getSalary(employeeId).salary,
+                taxRateTable[2025]?: throw IllegalArgumentException("세율이 입력되지 않았습니다.")
+            )
+        }
+    }
+
+    fun calculateEachSalary() {
+        this.employeeTable.forEach { (employeeId, Employee) ->
+            calculateSalary(
+                getSalary(employeeId).salary,
+                taxRateTable[2025]?: throw IllegalArgumentException("세율이 입력되지 않았습니다.")
+            )
+        }
     }
 
     // 사용자로부터 소득 세율을 입력받는다.
@@ -54,6 +76,10 @@ class SalarySystem {
         taxRate: Double
     ): Int {
         return (salary * (1 - taxRate)).toInt()
+    }
+
+    fun calculateSalaryBy(): Int {
+
     }
 
     // 양식에 맞게 결과를 출력한다.
