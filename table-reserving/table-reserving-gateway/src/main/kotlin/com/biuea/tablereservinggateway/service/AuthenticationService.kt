@@ -1,6 +1,5 @@
 package com.biuea.tablereservinggateway.service
 
-import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient

@@ -1,8 +1,5 @@
 package com.biuea.objectpractice.movie
 
-import java.time.DayOfWeek
-import java.time.ZonedDateTime
-
 //class MovieDiscountPolicyFactory(
 //    val discountPolicy: MovieDiscountPolicy
 //) {

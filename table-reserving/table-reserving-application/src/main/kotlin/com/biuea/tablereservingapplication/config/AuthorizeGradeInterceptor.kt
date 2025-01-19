@@ -5,13 +5,11 @@ import com.biuea.tablereservingapplication.core.HttpException
 import com.biuea.tablereservingapplication.utils.AuthorizeGrade
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
-import org.springframework.context.ApplicationContext
 import org.springframework.stereotype.Component
 import org.springframework.web.method.HandlerMethod
 import org.springframework.web.servlet.HandlerInterceptor
 import org.springframework.web.servlet.ModelAndView
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler
-import java.lang.Exception
 
 @Component
 class AuthorizeGradeInterceptor: HandlerInterceptor {

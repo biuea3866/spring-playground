@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="17">
+      <module name="com.biuea.reservation.domain" target="17" />
+      <module name="com.biuea.reservation.domain.main" target="17" />
+      <module name="com.biuea.reservation.domain.test" target="17" />
+      <module name="design-pattern" target="17" />
+      <module name="design-pattern.main" target="17" />
+      <module name="design-pattern.test" target="17" />
+      <module name="domain" target="17" />
+      <module name="domain.main" target="17" />
+      <module name="domain.test" target="17" />
       <module name="spring-playground.platform-domain" target="17" />
       <module name="spring-playground.platform-domain.main" target="17" />
       <module name="spring-playground.platform-domain.test" target="17" />
       <module name="spring-playground.platform-infra" target="17" />
       <module name="spring-playground.platform-infra.main" target="17" />
       <module name="spring-playground.platform-infra.test" target="17" />
-      <module name="spring-playground.table-reserving-gateway" target="17" />
-      <module name="spring-playground.table-reserving-gateway.main" target="17" />
-      <module name="spring-playground.table-reserving-gateway.test" target="17" />
       <module name="table-reserving" target="17" />
       <module name="table-reserving-admin-api" target="17" />
       <module name="table-reserving-admin-api.main" target="17" />
@@ -47,6 +53,9 @@
       <module name="table-reserving.table-reserving.table-reserving-application.test" target="17" />
       <module name="table-reserving.table-reserving.test" target="17" />
       <module name="table-reserving.test" target="17" />
+      <module name="user" target="17" />
+      <module name="user.main" target="17" />
+      <module name="user.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

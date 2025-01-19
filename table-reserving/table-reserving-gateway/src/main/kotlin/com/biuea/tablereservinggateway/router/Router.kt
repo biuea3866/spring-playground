@@ -4,7 +4,6 @@ import com.biuea.tablereservinggateway.filter.AppAuthenticationFilter
 import com.biuea.tablereservinggateway.filter.LoggingFilter
 import com.biuea.tablereservinggateway.filter.PlatformUserAuthorizationFilter
 import com.biuea.tablereservinggateway.filter.TraceFilter
-import com.biuea.tablereservinggateway.service.AuthenticationService
 import org.springframework.cloud.gateway.route.RouteLocator
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder
 import org.springframework.cloud.gateway.route.builder.RouteLocatorDsl

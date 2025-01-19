@@ -1,10 +1,8 @@
 package com.biuea.tablereservingapplication.application.restaurant
 
 import com.biuea.tablereservingapplication.core.Id
-import com.biuea.tablereservingapplication.domain.owner.aggregate.OwnerAggregation
 import com.biuea.tablereservingapplication.domain.owner.repository.OwnerRepository
 import com.biuea.tablereservingapplication.domain.restaurant.aggregate.RestaurantAggregation
-import com.biuea.tablereservingapplication.domain.restaurant.entity.Menu
 import com.biuea.tablereservingapplication.domain.restaurant.repository.RestaurantRepository
 import jakarta.transaction.Transactional
 import org.springframework.context.ApplicationEventPublisher

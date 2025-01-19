@@ -2,7 +2,6 @@ package com.biuea.tablereservingapplication.restaurant
 
 import com.biuea.tablereservingapplication.domain.owner.entity.Owner
 import com.biuea.tablereservingapplication.domain.restaurant.aggregate.RestaurantStatus
-import com.biuea.tablereservingapplication.domain.restaurant.entity.Menu
 import com.biuea.tablereservingapplication.domain.restaurant.vo.RestaurantCertificate
 import jakarta.persistence.*
 import java.time.ZonedDateTime

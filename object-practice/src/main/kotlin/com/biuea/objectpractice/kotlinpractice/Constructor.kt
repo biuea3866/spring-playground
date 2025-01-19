@@ -1,14 +1,7 @@
 package com.biuea.objectpractice.kotlinpractice
 
-import org.apache.commons.lang3.time.TimeZones
-import org.springframework.boot.web.servlet.server.Session
-import org.springframework.mail.javamail.MimeMailMessage
-import java.time.Clock
 import java.time.DayOfWeek
-import java.time.ZoneId
 import java.time.ZonedDateTime
-import java.util.TimeZone
-import kotlin.jvm.internal.Intrinsics
 
 
 class PrintSender: Sender {

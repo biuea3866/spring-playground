@@ -1,9 +1,6 @@
 package com.biuea.tablereservingapplication.domain.reserving.aggregate
 
-import com.biuea.tablereservingapplication.core.DomainEvent
 import com.biuea.tablereservingapplication.core.Id
-import com.biuea.tablereservingapplication.domain.reserving.event.CancelledEventPayload
-import com.biuea.tablereservingapplication.domain.reserving.event.ReservedEventPayload
 import com.biuea.tablereservingapplication.domain.reserving.vo.CancelInformation
 import com.biuea.tablereservingapplication.domain.reserving.vo.MenuInfo
 import com.biuea.tablereservingapplication.domain.reserving.vo.ReserveInformation

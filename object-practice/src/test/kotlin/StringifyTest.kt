@@ -1,6 +1,5 @@
 import com.biuea.objectpractice.kotlinpractice.Ex
 import com.biuea.objectpractice.kotlinpractice.Name
-import com.biuea.objectpractice.kotlinpractice.Stringify
 import com.biuea.objectpractice.kotlinpractice.Stringify.stringify
 import org.junit.jupiter.api.Test
 

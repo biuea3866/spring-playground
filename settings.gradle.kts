@@ -29,12 +29,20 @@ include(
     ":table-reserving-application",
     ":table-reserving-authn-api",
     ":table-reserving-gateway",
+    ":table-user-domain",
+    ":table-restaurant-domain",
+    ":table-reservation-domain",
+    ":table-payment-domain",
     ":object-practice",
     ":jpa-application"
 //    ":platform-domain",
 //    ":platform-infra"
 )
 
+project(":table-payment-domain").projectDir = file("table-reserving/core/payment-domain")
+project(":table-user-domain").projectDir = file("table-reserving/core/user-domain")
+project(":table-reservation-domain").projectDir = file("table-reserving/core/reservation-domain")
+project(":table-restaurant-domain").projectDir = file("table-reserving/core/restaurant-domain")
 project(":table-reserving-admin-api").projectDir = file("table-reserving/table-reserving-admin-api")
 project(":table-reserving-api").projectDir = file("table-reserving/table-reserving-api")
 project(":table-reserving-application").projectDir = file("table-reserving/table-reserving-application")
