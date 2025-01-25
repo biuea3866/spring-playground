@@ -33,12 +33,20 @@ include(
     ":table-restaurant-domain",
     ":table-reservation-domain",
     ":table-payment-domain",
+    ":table-reservation-mysql",
+    ":table-application",
+    ":table-application-webclient",
+    ":table-reservation-kafka",
     ":object-practice",
     ":jpa-application"
 //    ":platform-domain",
 //    ":platform-infra"
 )
 
+project(":table-application-webclient").projectDir = file("table-reserving/adapter/driven/application-webclient")
+project(":table-reservation-mysql").projectDir = file("table-reserving/adapter/driven/reservation-mysql")
+project(":table-reservation-kafka").projectDir = file("table-reserving/adapter/driven/reservation-kafka")
+project(":table-application").projectDir = file("table-reserving/core/table-application")
 project(":table-payment-domain").projectDir = file("table-reserving/core/payment-domain")
 project(":table-user-domain").projectDir = file("table-reserving/core/user-domain")
 project(":table-reservation-domain").projectDir = file("table-reserving/core/reservation-domain")
