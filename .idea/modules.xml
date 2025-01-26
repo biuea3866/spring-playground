@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/table-reserving/adapter/driven/reservation-kafka/reservation-kafka.iml" filepath="$PROJECT_DIR$/table-reserving/adapter/driven/reservation-kafka/reservation-kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/table-reserving/core/table-application/table-application.iml" filepath="$PROJECT_DIR$/table-reserving/core/table-application/table-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/table-reservation/table-domain/table-domain.iml" filepath="$PROJECT_DIR$/table-reservation/table-domain/table-domain.iml" />
     </modules>
   </component>
 </project>

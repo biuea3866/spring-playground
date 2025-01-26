@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/jpa-application" />
             <option value="$PROJECT_DIR$/object-practice" />
             <option value="$PROJECT_DIR$/table-reserving/adapter/driven/application-webclient" />
+            <option value="$PROJECT_DIR$/table-reserving/adapter/driven/reservation-kafka" />
             <option value="$PROJECT_DIR$/table-reserving/adapter/driven/reservation-mysql" />
             <option value="$PROJECT_DIR$/table-reserving/core/payment-domain" />
             <option value="$PROJECT_DIR$/table-reserving/core/reservation-domain" />
