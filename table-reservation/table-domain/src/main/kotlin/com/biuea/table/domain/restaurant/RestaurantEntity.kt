@@ -2,6 +2,8 @@ package com.biuea.table.domain.restaurant
 
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
+import jakarta.persistence.Embeddable
+import jakarta.persistence.Embedded
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
 import jakarta.persistence.GeneratedValue
@@ -15,7 +17,34 @@ import java.time.ZonedDateTime
 
 @Table(name = "restaurant")
 @Entity
-class RestaurantEntity {
+class RestaurantEntity(
+    @Column(name = "name")
+    val name: String,
+
+    @Embedded
+    val addressInfo: AddressInfo,
+
+    @Embedded
+    val registrationInfo: RegistrationInfo?,
+
+    @Embedded
+    val salesInfo: SalesInfo,
+
+    @Column(name = "contact")
+    val contact: String,
+
+    @Column(name = "description")
+    val description: String,
+
+    @Column(name = "status")
+    val status: String,
+
+    @Column(name = "opened_at")
+    val openedAt: ZonedDateTime,
+
+    @Column(name = "closed_at")
+    val closedAt: ZonedDateTime
+) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L
@@ -64,7 +93,60 @@ class RestaurantEntity {
     }
 }
 
-@Table(name = "reservationRelation")
+@Embeddable
+data class AddressInfo(
+    // 서울특별시, 대구광역시 ..
+    @Column(name = "province")
+    val province: String,
+
+    // 강남구, 중구 ..
+    @Column(name = "municipality")
+    val municipality: String,
+
+    // 역삼동, 동대구역 ..
+    @Column(name = "city_district")
+    val cityDistrict: String,
+
+    // 123-456, 789-123 ..
+    @Column(name = "lot_number")
+    val lotNumber: String,
+
+    // 주소
+    @Column(name = "address")
+    val address: String,
+)
+
+@Embeddable
+data class RegistrationInfo(
+    @Column(name = "registration_number")
+    val registrationNumber: String,
+    @Column(name = "s3_key")
+    val s3Key: String,
+    @Column(name = "s3_bucket")
+    val s3Bucket: String,
+    @Column(name = "filename")
+    val filename: String
+)
+
+@Embeddable
+data class SalesInfo(
+    @Column(name = "opening_time")
+    val openingTime: ZonedDateTime,
+
+    @Column(name = "closing_time")
+    val closingTime: ZonedDateTime,
+
+    @Column(name = "start_break_time")
+    val startBreakTime: ZonedDateTime?,
+
+    @Column(name = "end_break_time")
+    val endBreakTime: ZonedDateTime?,
+
+    @Column(name = "closed_days")
+    val closedDays: String
+)
+
+@Table(name = "restaurant_reservation_relation")
 @Entity
 class ReservationRelation(
     @Column(name = "reservation_id")

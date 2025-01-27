@@ -1,0 +1,42 @@
+services:
+  mysql-master:
+    image: mysql:8.0
+    container_name: mysql-master
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: master_root_password
+      MYSQL_DATABASE: master_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - master-data:/var/lib/mysql
+    command: ["--server-id=1", "--log-bin=/var/lib/mysql/mysql-bin.log", "--binlog-format=ROW", "--default-authentication-plugin=mysql_native_password"]
+
+  mysql-slave-1:
+    image: mysql:8.0
+    container_name: mysql-slave-1
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: slave_root_password
+    depends_on:
+      - mysql-master
+    volumes:
+      - slave1-data:/var/lib/mysql
+    command: ["--server-id=2", "--default-authentication-plugin=mysql_native_password"]
+
+  mysql-slave-2:
+    image: mysql:8.0
+    container_name: mysql-slave-2
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: slave_root_password
+    depends_on:
+      - mysql-master
+    volumes:
+      - slave2-data:/var/lib/mysql
+    command: ["--server-id=3", "--default-authentication-plugin=mysql_native_password"]
+
+volumes:
+  master-data:
+  slave1-data:
+  slave2-data:

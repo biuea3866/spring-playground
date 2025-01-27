@@ -9,7 +9,10 @@ class TableEntity(
     val tableNumber: Int,
 
     @Column(name = "available")
-    var available: Boolean
+    var available: Boolean,
+
+    @Column(name = "status")
+    val status: String
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
