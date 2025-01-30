@@ -3,6 +3,7 @@ package com.biuea.table.config
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 import org.springframework.orm.jpa.JpaTransactionManager
 import org.springframework.orm.jpa.JpaVendorAdapter
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean
@@ -13,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement
 import java.util.*
 import javax.sql.DataSource
 
-
+@EnableJpaRepositories(basePackages = ["com.biuea.table.infrastructure.mysql"])
 @Configuration
 @EnableTransactionManagement
 class JpaConfiguration {

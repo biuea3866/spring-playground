@@ -60,7 +60,40 @@ services:
     ports:
       - "9092:9092"
 
+  # Redis Node 1
+  redis-node-1:
+    image: redis:6.2-alpine
+    container_name: redis-node-1
+    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data1:/data
+
+  # Redis Node 2
+  redis-node-2:
+    image: redis:6.2-alpine
+    container_name: redis-node-2
+    command: ["redis-server", "--port", "6380", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis-data2:/data
+
+  # Redis Node 3
+  redis-node-3:
+    image: redis:6.2-alpine
+    container_name: redis-node-3
+    command: ["redis-server", "--port", "6381", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
+    ports:
+      - "6381:6379"
+    volumes:
+      - redis-data3:/data
+
 volumes:
   master-data:
   slave1-data:
   slave2-data:
+  redis-data1:
+  redis-data2:
+  redis-data3:

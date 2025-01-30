@@ -15,8 +15,7 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-ui:$springDocVersion")
     implementation("org.springdoc:springdoc-openapi-kotlin:$springDocVersion")
 
-    implementation(project(":table-reserving-application"))
-    implementation(project(":table-application"))
+    implementation(project(":table-domain"))
 }
 
 tasks {

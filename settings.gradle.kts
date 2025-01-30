@@ -39,11 +39,15 @@ include(
     ":table-reservation-kafka",
     ":object-practice",
     ":jpa-application",
-    ":table-domain"
+    ":table-domain",
+    ":table-auth",
+    ":table-gateway"
 //    ":platform-domain",
 //    ":platform-infra"
 )
 
+project(":table-gateway").projectDir = file("table-reservation/table-gateway")
+project(":table-auth").projectDir = file("table-reservation/table-auth")
 project(":table-domain").projectDir = file("table-reservation/table-domain")
 project(":table-application-webclient").projectDir = file("table-reserving/adapter/driven/application-webclient")
 project(":table-reservation-mysql").projectDir = file("table-reserving/adapter/driven/reservation-mysql")
