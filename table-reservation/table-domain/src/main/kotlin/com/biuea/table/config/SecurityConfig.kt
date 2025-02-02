@@ -12,9 +12,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfig(
-    private val jwtAuthenticationFilter: JwtAuthenticationFilter
-) {
+class SecurityConfig {
     @Bean
     fun bCryptPasswordEncoder(): BCryptPasswordEncoder {
         return BCryptPasswordEncoder()
@@ -30,7 +28,7 @@ class SecurityConfig(
 
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
-        return http.csrf { it.disable()}
+        return http.csrf { it.disable() }
             .authorizeHttpRequests {
                 it.requestMatchers(
                     "/app/authentication/login",
@@ -38,7 +36,6 @@ class SecurityConfig(
                     "/app/authentication/signup"
                 ).permitAll().anyRequest().authenticated()
             }
-            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
             .build()
     }
 }

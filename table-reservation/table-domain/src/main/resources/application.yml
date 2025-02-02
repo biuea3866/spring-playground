@@ -3,22 +3,19 @@ spring:
     master:
       hikari:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://localhost:3306/master_db?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
-        username: root
-        password: master_root_password
+        jdbc-url: ${SPRING_DATASOURCE_MASTER_URL}
+        username: ${SPRING_DATASOURCE_MASTER_USERNAME}
+        password: ${SPRING_DATASOURCE_MASTER_PASSWORD}
     slave:
       hikari:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://localhost:3306/master_db?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
-        username: root
-        password: slave_root_password
+        jdbc-url: ${SPRING_DATASOURCE_SLAVE_URL}
+        username: ${SPRING_DATASOURCE_SLAVE_USERNAME}
+        password: ${SPRING_DATASOURCE_SLAVE_PASSWORD}
   data:
     redis:
       cluster:
-        nodes:
-          - redis-node-1:6379
-          - redis-node-2:6380
-          - redis-node-3:6381
+        nodes: ${SPRING_REDIS_CLUSTER_NODES}
       timeout: 5000
       lettuce:
         pool:
@@ -27,7 +24,7 @@ spring:
           min-idle: 0
           max-wait: -1
 jwt:
-  secret: asmnzxm,cn123kljhjasldk!@!sacxzcxzcsadasd
+  secret: ${JWT_KEY}
   access:
     token:
       expire-time: 86400 # 3600 * 24 하루

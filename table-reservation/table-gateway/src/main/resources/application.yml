@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    master:
+      hikari:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: ${SPRING_DATASOURCE_MASTER_URL}
+        username: ${SPRING_DATASOURCE_MASTER_USERNAME}
+        password: ${SPRING_DATASOURCE_MASTER_PASSWORD}
+    slave:
+      hikari:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: ${SPRING_DATASOURCE_SLAVE_URL}
+        username: ${SPRING_DATASOURCE_SLAVE_USERNAME}
+        password: ${SPRING_DATASOURCE_SLAVE_PASSWORD}
+  data:
+    redis:
+      cluster:
+        nodes: ${SPRING_REDIS_CLUSTER_NODES}
+      timeout: 5000
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1
+  main:
+    web-application-type: reactive
+jwt:
+  secret: ${JWT_KEY}
+  access:
+    token:
+      expire-time: 86400 # 3600 * 24 하루
+  refresh:
+    token:
+      expire-time: 2073600 # 3600 * 24 * 24 한달

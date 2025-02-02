@@ -1,1 +1,0 @@
-/Users/biuea/spring-playground/table-reserving/core/reservation-domain/src/main/kotlin/com/biuea/reservation/domain/ReservationEntity.kt

@@ -1,23 +1,27 @@
 package com.biuea.table.auth
 
 import com.biuea.table.application.authentication.LoginApplication
+import com.biuea.table.application.authentication.RefreshApplication
 import com.biuea.table.application.authentication.SignUpApplication
 import com.biuea.table.application.authentication.SignUpCommand
 import com.biuea.table.auth.request.LoginRequest
 import com.biuea.table.auth.request.SignUpRequest
 import com.biuea.table.auth.response.LoginResponse
+import com.biuea.table.auth.response.RefreshResponse
 import com.biuea.table.common.ApiResponse
 import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RestController
 
 @RestController("/authentication")
 class AuthenticationApiController(
     private val loginApplication: LoginApplication,
-    private val signUpApplication: SignUpApplication
+    private val signUpApplication: SignUpApplication,
+    private val refreshApplication: RefreshApplication
 ) {
     @PostMapping("/login")
     fun login(
@@ -27,13 +31,18 @@ class AuthenticationApiController(
         return ApiResponse.success(LoginResponse.of(loginResponse.userId, loginResponse.accessToken))
     }
 
-    @DeleteMapping("/authentication/logout")
+    @DeleteMapping("/logout")
     fun logout() {}
 
-    @PatchMapping("/authentication/refresh")
-    fun refresh() {}
+    @PatchMapping("/refresh")
+    fun refresh(
+        @RequestHeader("X-User-Id") userId: Long
+    ): ApiResponse<RefreshResponse> {
+        val refreshToken = refreshApplication.refresh(userId)
+        return ApiResponse.success(RefreshResponse(refreshToken.userId, refreshToken.accessToken))
+    }
 
-    @PostMapping("/authentication/signup")
+    @PostMapping("/signup")
     fun signup(
         @RequestBody request: SignUpRequest
     ): ApiResponse<Unit> {

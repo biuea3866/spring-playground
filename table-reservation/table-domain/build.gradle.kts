@@ -1,3 +1,10 @@
+plugins {
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
+    kotlin("plugin.spring")
+    kotlin("jvm") version "1.9.0"
+}
+
 dependencies {
     val jacksonVersion: String by project
     val springBootVersion: String by project
@@ -23,6 +30,13 @@ dependencies {
 }
 
 tasks {
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = "17"
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+        }
+    }
+
     bootJar {
         enabled = false
     }

@@ -1,5 +1,6 @@
 package com.biuea.table.domain.restaurant
 
+import com.biuea.table.application.support.ReservationCoordinator
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Embeddable
@@ -73,14 +74,23 @@ class RestaurantEntity(
     )
     val reservationRelations: Set<ReservationRelation> = setOf()
 
+    @Transient
+    lateinit var waitingNumberStrategy: WaitingNumberStrategy
+
+    fun changeWaitingNumberStrategy(waitingNumberStrategy: WaitingNumberStrategy) {
+        this.waitingNumberStrategy = waitingNumberStrategy
+    }
+
     fun isRemainTable(): Boolean {
         return this.tables.any { it.available }
     }
 
-    fun occupyTable() {
-        this.tables.firstOrNull { it.available }
-            ?.occupy()
-            ?: throw IllegalArgumentException("No table available")
+    private fun occupyTable() {
+        if (this.isRemainTable()) {
+            this.tables.firstOrNull { it.available }
+                ?.occupy()
+                ?: throw IllegalArgumentException("No table available")
+        }
     }
 
     private fun todayReservationManagement(): RestaurantManagementEntity {
@@ -90,6 +100,12 @@ class RestaurantEntity(
 
     fun isTurnedOnAutoConfirm(): Boolean {
         return this.todayReservationManagement().autoConfirm
+    }
+
+    fun issueWaitingNumber(): Int {
+        if (this.waitingNumberStrategy is ConfirmWaitingNumberStrategy) this.occupyTable()
+
+        return this.waitingNumberStrategy.issue()
     }
 }
 

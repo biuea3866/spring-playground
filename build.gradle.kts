@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
 plugins {
     kotlin("jvm")
     id("org.jetbrains.kotlin.kapt")
@@ -15,18 +17,8 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-tasks {
-    bootJar {
-        enabled = false
-    }
-
-    jar {
-        enabled = true
-    }
-}
-
 allprojects {
-    group = "com.biuea"
+    group = "com.biuea.table"
     version = "1.0.0"
 
     repositories {
@@ -91,6 +83,8 @@ subprojects {
     }
 
     dependencies {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib")
+
         implementation("org.springframework.boot:spring-boot-starter")
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         implementation("org.springframework.boot:spring-boot-starter-data-redis")
@@ -112,5 +106,15 @@ subprojects {
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
         testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    }
+}
+
+tasks {
+    bootJar {
+        enabled = false
+    }
+
+    jar {
+        enabled = true
     }
 }

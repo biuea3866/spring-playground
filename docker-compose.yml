@@ -90,6 +90,46 @@ services:
     volumes:
       - redis-data3:/data
 
+  table-gateway:
+    build:
+      context: .
+      dockerfile: table-reservation/table-gateway/Dockerfile
+    container_name: table-gateway
+    depends_on:
+      - mysql-master
+      - redis-node-1
+    environment:
+      SPRING_DATASOURCE_MASTER_URL: jdbc:mysql://mysql-master:3306/master_db?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+      SPRING_DATASOURCE_MASTER_USERNAME: root
+      SPRING_DATASOURCE_MASTER_PASSWORD: master_root_password
+      SPRING_DATASOURCE_SLAVE_URL: jdbc:mysql://mysql-slave-1:3306/master_db?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+      SPRING_DATASOURCE_SLAVE_USERNAME: root
+      SPRING_DATASOURCE_SLAVE_PASSWORD: slave_root_password
+      SPRING_REDIS_CLUSTER_NODES: redis-node-1:6379,redis-node-2:6380,redis-node-3:6381
+      JWT_KEY: asmnzxm,cn123kljhjasldk!@!sacxzcxzcsadasd
+    ports:
+      - "8080:8080"
+
+  table-auth:
+    build:
+      context: .
+      dockerfile: table-reservation/table-auth/Dockerfile
+    container_name: table-auth
+    depends_on:
+      - mysql-master
+      - redis-node-1
+    environment:
+      SPRING_DATASOURCE_MASTER_URL: jdbc:mysql://mysql-master:3306/master_db?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+      SPRING_DATASOURCE_MASTER_USERNAME: root
+      SPRING_DATASOURCE_MASTER_PASSWORD: master_root_password
+      SPRING_DATASOURCE_SLAVE_URL: jdbc:mysql://mysql-slave-1:3306/master_db?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+      SPRING_DATASOURCE_SLAVE_USERNAME: root
+      SPRING_DATASOURCE_SLAVE_PASSWORD: slave_root_password
+      SPRING_REDIS_CLUSTER_NODES: redis-node-1:6379,redis-node-2:6380,redis-node-3:6381
+      JWT_KEY: asmnzxm,cn123kljhjasldk!@!sacxzcxzcsadasd
+    ports:
+      - "8081:8080"
+
 volumes:
   master-data:
   slave1-data:

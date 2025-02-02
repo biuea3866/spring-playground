@@ -43,11 +43,6 @@ class ReservationEntity(
         this.updatedAt = ZonedDateTime.now()
     }
 
-    fun confirm(reservationNumber: Int, isTurnedOnAutoConfirm: Boolean) {
-        this.reservationInfo.confirm(reservationNumber)
-        this.updatedAt = ZonedDateTime.now()
-    }
-
     fun cancel() {
         this.reservationInfo.cancel()
         this.updatedAt = ZonedDateTime.now()

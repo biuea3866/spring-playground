@@ -23,46 +23,58 @@ pluginManagement {
     }
 }
 
-include(
-    ":table-reserving-admin-api",
-    ":table-reserving-api",
-    ":table-reserving-application",
-    ":table-reserving-authn-api",
-    ":table-reserving-gateway",
-    ":table-user-domain",
-    ":table-restaurant-domain",
-    ":table-reservation-domain",
-    ":table-payment-domain",
-    ":table-reservation-mysql",
-    ":table-application",
-    ":table-application-webclient",
-    ":table-reservation-kafka",
-    ":object-practice",
-    ":jpa-application",
-    ":table-domain",
-    ":table-auth",
-    ":table-gateway"
+val isDockerBuild = extra["dockerBuild"]?.toString()?.toBoolean()?: false
+
+if (isDockerBuild) {
+    include(
+        ":table-domain",
+        ":table-auth",
+        ":table-gateway"
+    )
+} else {
+    include(
+        ":table-reserving-admin-api",
+        ":table-reserving-api",
+        ":table-reserving-application",
+        ":table-reserving-authn-api",
+        ":table-reserving-gateway",
+        ":table-user-domain",
+        ":table-restaurant-domain",
+        ":table-reservation-domain",
+        ":table-payment-domain",
+        ":table-reservation-mysql",
+        ":table-application",
+        ":table-application-webclient",
+        ":table-reservation-kafka",
+        ":object-practice",
+        ":jpa-application",
+        ":table-domain",
+        ":table-auth",
+        ":table-gateway"
 //    ":platform-domain",
 //    ":platform-infra"
-)
+    )
+}
 
-project(":table-gateway").projectDir = file("table-reservation/table-gateway")
-project(":table-auth").projectDir = file("table-reservation/table-auth")
-project(":table-domain").projectDir = file("table-reservation/table-domain")
-project(":table-application-webclient").projectDir = file("table-reserving/adapter/driven/application-webclient")
-project(":table-reservation-mysql").projectDir = file("table-reserving/adapter/driven/reservation-mysql")
-project(":table-reservation-kafka").projectDir = file("table-reserving/adapter/driven/reservation-kafka")
-project(":table-application").projectDir = file("table-reserving/core/table-application")
-project(":table-payment-domain").projectDir = file("table-reserving/core/payment-domain")
-project(":table-user-domain").projectDir = file("table-reserving/core/user-domain")
-project(":table-reservation-domain").projectDir = file("table-reserving/core/reservation-domain")
-project(":table-restaurant-domain").projectDir = file("table-reserving/core/restaurant-domain")
-project(":table-reserving-admin-api").projectDir = file("table-reserving/table-reserving-admin-api")
-project(":table-reserving-api").projectDir = file("table-reserving/table-reserving-api")
-project(":table-reserving-application").projectDir = file("table-reserving/table-reserving-application")
-project(":table-reserving-authn-api").projectDir = file("table-reserving/table-reserving-authn-api")
-project(":table-reserving-gateway").projectDir = file("table-reserving/table-reserving-gateway")
-project(":object-practice").projectDir = file("object-practice")
-project(":jpa-application").projectDir = file("jpa-application")
+if (isDockerBuild) {
+    project(":table-gateway").projectDir = file("table-reservation/table-gateway")
+    project(":table-auth").projectDir = file("table-reservation/table-auth")
+    project(":table-domain").projectDir = file("table-reservation/table-domain")
+} else {
+    project(":table-reserving-admin-api").projectDir = file("table-reservation/table-reserving-admin-api")
+    project(":table-reserving-api").projectDir = file("table-reservation/table-reserving-api")
+    project(":table-reserving-application").projectDir = file("table-reservation/table-reserving-application")
+    project(":table-reserving-authn-api").projectDir = file("table-reservation/table-reserving-authn-api")
+    project(":table-reserving-gateway").projectDir = file("table-reservation/table-reserving-gateway")
+    project(":table-user-domain").projectDir = file("table-reservation/table-user-domain")
+    project(":table-restaurant-domain").projectDir = file("table-reservation/table-restaurant-domain")
+    project(":table-reservation-domain").projectDir = file("table-reservation/table-reservation-domain")
+    project(":table-payment-domain").projectDir = file("table-reservation/table-payment-domain")
+    project(":table-application").projectDir = file("table-reservation/table-application")
+    project(":table-application-webclient").projectDir = file("table-reservation/table-application-webclient")
+    project(":table-reservation-kafka").projectDir = file("table-reservation/table-reservation-kafka")
+    project(":object-practice").projectDir = file("object-practice")
+    project(":jpa-application").projectDir = file("jpa-application")
+}
 //project(":platform-domain").projectDir = file("platform/platform-domain")
 //project(":platform-infra").projectDir = file("platform/platform-infra")
