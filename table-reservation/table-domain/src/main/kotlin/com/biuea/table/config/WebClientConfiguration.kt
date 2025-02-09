@@ -24,7 +24,7 @@ class WebClientConfiguration {
             .pendingAcquireMaxCount(-1)
             .evictInBackground(Duration.ofSeconds(30L))
             .lifo()
-            .metrics(true)
+            .metrics(false)
             .build()
 
         val httpClient = HttpClient.create(provider)

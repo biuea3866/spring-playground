@@ -1,5 +1,6 @@
 package com.biuea.table.domain.user.authentication
 
+import com.biuea.table.common.HttpException
 import com.biuea.table.domain.user.UserEntity
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
@@ -9,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Component
 import java.security.Key
 import java.util.*
+import java.util.function.Predicate.not
 
 @Component
 class AuthenticationService(
@@ -63,6 +65,11 @@ class AuthenticationService(
             .body
             .expiration
             .before(Date())
+    }
+
+    fun checkToken(token: String) {
+        this.isTokenValid(token).takeIf { it }
+            ?.let { throw HttpException.UnauthorizedException("Token is not valid") }
     }
 
     fun extractValue(

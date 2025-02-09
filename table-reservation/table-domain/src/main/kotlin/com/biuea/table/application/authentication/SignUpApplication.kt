@@ -1,5 +1,8 @@
 package com.biuea.table.application.authentication
 
+import com.biuea.table.domain.alert.MailMessageBuilder
+import com.biuea.table.domain.alert.MessageCoordinator
+import com.biuea.table.domain.alert.SmsMessageBuilder
 import com.biuea.table.domain.user.UserEntity
 import com.biuea.table.domain.user.UserRepository
 import com.biuea.table.domain.user.authentication.AuthenticationService
@@ -11,7 +14,8 @@ import org.springframework.transaction.annotation.Transactional
 @Component
 class SignUpApplication(
     private val userRepository: UserRepository,
-    private val authenticationService: AuthenticationService
+    private val authenticationService: AuthenticationService,
+    private val messageCoordinator: MessageCoordinator
 ) {
     @Transactional
     fun signUp(command: SignUpCommand): UserEntity {
@@ -24,6 +28,23 @@ class SignUpApplication(
         return userRepository.save(user)
         // TODO: 4. s3 프로필 이미지 업로드
         // TODO: 5. 알림 추가
+        messageCoordinator.addMessageBuilders(
+            setOf(
+                MailMessageBuilder().init(
+                    subject = "회원가입을 축하합니다.",
+                    content = "회원가입을 축하합니다.",
+                    to = user.email,
+                    from = "table@example.com"
+                ),
+                SmsMessageBuilder().init(
+                    subject = "회원가입을 축하합니다.",
+                    content = "회원가입을 축하합니다.",
+                    to = user.phoneNumber,
+                    from = "table@kakao.com"
+                )
+            )
+        )
+        messageCoordinator.send()
     }
 }
 

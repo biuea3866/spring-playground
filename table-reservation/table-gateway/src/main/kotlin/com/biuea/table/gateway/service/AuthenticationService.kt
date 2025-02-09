@@ -10,8 +10,8 @@ import reactor.core.publisher.Mono
 class AuthenticationService(
     private val webClient: WebClient
 ) {
-    fun authenticateAppToken(token: String): Mono<Long> {
-        return webClient.get()
+    fun authenticateAppToken(token: String): Mono<String> {
+        return webClient.post()
             .uri {
                 UriComponentsBuilder.fromUriString("http://localhost:8080/authentication/token/")
                     .build()
@@ -21,6 +21,6 @@ class AuthenticationService(
             .headers { h -> h.setBearerAuth(token) }
             .accept(MediaType.APPLICATION_JSON)
             .retrieve()
-            .bodyToMono(Long::class.java)
+            .bodyToMono(String::class.java)
     }
 }

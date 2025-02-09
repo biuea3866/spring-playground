@@ -4,6 +4,7 @@ import com.biuea.table.application.authentication.LoginApplication
 import com.biuea.table.application.authentication.RefreshApplication
 import com.biuea.table.application.authentication.SignUpApplication
 import com.biuea.table.application.authentication.SignUpCommand
+import com.biuea.table.application.authentication.TokenApplication
 import com.biuea.table.auth.request.LoginRequest
 import com.biuea.table.auth.request.SignUpRequest
 import com.biuea.table.auth.response.LoginResponse
@@ -21,7 +22,8 @@ import org.springframework.web.bind.annotation.RestController
 class AuthenticationApiController(
     private val loginApplication: LoginApplication,
     private val signUpApplication: SignUpApplication,
-    private val refreshApplication: RefreshApplication
+    private val refreshApplication: RefreshApplication,
+    private val tokenApplication: TokenApplication
 ) {
     @PostMapping("/login")
     fun login(
@@ -59,5 +61,12 @@ class AuthenticationApiController(
         )
 
         return ApiResponse.success(Unit)
+    }
+
+    @PostMapping("/token/validate")
+    fun validateToken(
+        @RequestHeader("Authorization") token: String
+    ): ApiResponse<String> {
+        return ApiResponse.success(tokenApplication.validate(token))
     }
 }
