@@ -8,5 +8,6 @@ interface PaymentRepository {
         reason: String,
         amount: Int,
         type: PaymentHistory.Type,
+        paymentType: PaymentType
     ): Boolean
 }

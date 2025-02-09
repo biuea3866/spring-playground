@@ -4,6 +4,6 @@ enum class PaymentType {
     CARD,
     NAVER_PAY,
     KAKAO_PAY,
-    TOSS,
+    TOSS_PAY,
     TABLE_PAY
 }

@@ -36,7 +36,15 @@ class Payment(
         cascade = [CascadeType.ALL],
         orphanRemoval = true,
     )
-    val paymentHistories: MutableSet<PaymentHistory>
+    val paymentHistories: MutableSet<PaymentHistory>,
+
+    @OneToMany(
+        mappedBy = "payment",
+        fetch = FetchType.LAZY,
+        cascade = [CascadeType.ALL],
+        orphanRemoval = true,
+    )
+    val paymentTransactions: MutableSet<PaymentTransaction>
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,5 +52,9 @@ class Payment(
 
     fun addPaymentHistory(paymentHistory: PaymentHistory) {
         paymentHistories.add(paymentHistory)
+    }
+
+    fun pay(paymentTransaction: PaymentTransaction) {
+        paymentTransactions.add(paymentTransaction)
     }
 }

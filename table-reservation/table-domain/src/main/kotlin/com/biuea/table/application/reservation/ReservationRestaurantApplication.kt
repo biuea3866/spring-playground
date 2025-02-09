@@ -5,8 +5,10 @@ import com.biuea.table.domain.payment.CouponPaymentPolicy
 import com.biuea.table.domain.payment.CouponRepository
 import com.biuea.table.domain.payment.PaymentDiscount
 import com.biuea.table.domain.payment.PaymentGateway
+import com.biuea.table.domain.payment.PaymentGatewayRouter
 import com.biuea.table.domain.payment.PaymentHistory
 import com.biuea.table.domain.payment.PaymentRepository
+import com.biuea.table.domain.payment.PaymentType
 import com.biuea.table.domain.payment.PointPaymentPolicy
 import com.biuea.table.domain.payment.PointRepository
 import com.biuea.table.domain.payment.SelfDiscountPolicy
@@ -22,7 +24,7 @@ class ReservationRestaurantApplication(
     private val reservationRepository: ReservationRepository,
     private val restaurantRepository: RestaurantRepository,
     private val paymentRepository: PaymentRepository,
-    private val paymentGateway: PaymentGateway,
+    private val paymentGatewayRouter: PaymentGatewayRouter,
     private val couponRepository: CouponRepository,
     private val pointRepository: PointRepository
 ) {
@@ -48,8 +50,12 @@ class ReservationRestaurantApplication(
             command.selfDiscount,
             command.userId
         )
-        paymentGateway.pay(paymentDiscount.calculate())
-        paymentRepository.update(payment, "${restaurant.name} 에서 ${paymentDiscount.calculate()}를 결제했습니다.", paymentDiscount.calculate(), PaymentHistory.Type.PAYMENT)
+        val paymentGateway = this.applyPayment(
+            command.paymentTransactionId,
+            paymentDiscount.calculate(),
+            command.paymentType
+        )
+        paymentRepository.update(payment, "${restaurant.name} 에서 ${paymentDiscount.calculate()}를 결제했습니다.", paymentDiscount.calculate(), PaymentHistory.Type.PAYMENT, paymentGateway.paymentType)
     }
 
     private fun applyPaymentDiscount(
@@ -71,6 +77,16 @@ class ReservationRestaurantApplication(
 
         return paymentDiscount
     }
+
+    private fun applyPayment(
+        paymentTransactionId: String,
+        paymentAmount: Int,
+        paymentType: PaymentType
+    ): PaymentGateway {
+        val paymentGateway = paymentGatewayRouter.route(paymentType)
+        paymentGateway.pay(paymentTransactionId, paymentAmount)
+        return paymentGateway
+    }
 }
 
 data class ReserveRestaurantCommand(
@@ -82,5 +98,7 @@ data class ReserveRestaurantCommand(
     val paymentAmount: Int,
     val point: Int?,
     val couponId: Long?,
-    val selfDiscount: Int?
+    val selfDiscount: Int?,
+    val paymentType: PaymentType,
+    val paymentTransactionId: String
 )
