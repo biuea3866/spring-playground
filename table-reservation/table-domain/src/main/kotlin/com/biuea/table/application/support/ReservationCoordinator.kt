@@ -8,13 +8,12 @@ import com.biuea.table.domain.restaurant.RestaurantEntity
 class ReservationCoordinator {
     fun issueWaitingNumber(
         reservation: ReservationEntity,
-        restaurant: RestaurantEntity,
-        notEntranceCustomers: Int
+        restaurant: RestaurantEntity
     ) {
         when(restaurant.isTurnedOnAutoConfirm()) {
             true -> {
-                restaurant.changeWaitingNumberStrategy(ConfirmWaitingNumberStrategy(restaurant.isRemainTable(), notEntranceCustomers))
                 val waitingNumber = restaurant.issueWaitingNumber()
+                restaurant.changeWaitingNumberStrategy(ConfirmWaitingNumberStrategy(restaurant.isRemainTable(), waitingNumber))
                 reservation.confirm(waitingNumber)
             }
 

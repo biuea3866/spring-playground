@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 
 @Component
-class KakaoAdapter(
+class KakaoTalkAdapter(
     private val webClient: WebClient
 ): AlertMessageSender {
     override fun send(message: AlertMessage) {
