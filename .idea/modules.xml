@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/table-reserving/core/table-application/table-application.iml" filepath="$PROJECT_DIR$/table-reserving/core/table-application/table-application.iml" />
-      <module fileurl="file://$PROJECT_DIR$/table-reservation/table-gateway/table-gateway.iml" filepath="$PROJECT_DIR$/table-reservation/table-gateway/table-gateway.iml" />
     </modules>
   </component>
 </project>

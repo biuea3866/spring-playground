@@ -1,10 +1,3 @@
-plugins {
-    id("org.springframework.boot")
-    id("io.spring.dependency-management")
-    kotlin("plugin.spring")
-    kotlin("jvm") version "1.9.0"
-}
-
 dependencies {
     val jacksonVersion: String by project
     val springBootVersion: String by project
@@ -12,9 +5,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation(platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"))
 
@@ -30,13 +20,6 @@ dependencies {
 }
 
 tasks {
-    compileKotlin {
-        kotlinOptions {
-            jvmTarget = "17"
-            freeCompilerArgs = listOf("-Xjsr305=strict")
-        }
-    }
-
     bootJar {
         enabled = false
     }

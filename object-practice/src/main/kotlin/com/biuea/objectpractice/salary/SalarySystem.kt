@@ -79,7 +79,7 @@ class SalarySystem {
     }
 
     fun calculateSalaryBy(): Int {
-
+        return 0
     }
 
     // 양식에 맞게 결과를 출력한다.

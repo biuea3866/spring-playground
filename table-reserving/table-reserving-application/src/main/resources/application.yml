@@ -1,7 +1,0 @@
-jwt:
-  secret: sercret-key
-  access:
-    token:
-      expire-time: 3600 * 24 # 하루
-  refresh:
-      expire-time: 3600 * 24 * 24 # 한달

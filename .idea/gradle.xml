@@ -10,20 +10,22 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/jpa-application" />
             <option value="$PROJECT_DIR$/object-practice" />
-            <option value="$PROJECT_DIR$/table-reservation/table-domain" />
-            <option value="$PROJECT_DIR$/table-reserving/adapter/driven/application-webclient" />
-            <option value="$PROJECT_DIR$/table-reserving/adapter/driven/reservation-kafka" />
-            <option value="$PROJECT_DIR$/table-reserving/adapter/driven/reservation-mysql" />
-            <option value="$PROJECT_DIR$/table-reserving/core/payment-domain" />
-            <option value="$PROJECT_DIR$/table-reserving/core/reservation-domain" />
-            <option value="$PROJECT_DIR$/table-reserving/core/restaurant-domain" />
-            <option value="$PROJECT_DIR$/table-reserving/core/table-application" />
-            <option value="$PROJECT_DIR$/table-reserving/core/user-domain" />
-            <option value="$PROJECT_DIR$/table-reserving/table-reserving-admin-api" />
-            <option value="$PROJECT_DIR$/table-reserving/table-reserving-api" />
-            <option value="$PROJECT_DIR$/table-reserving/table-reserving-application" />
-            <option value="$PROJECT_DIR$/table-reserving/table-reserving-authn-api" />
-            <option value="$PROJECT_DIR$/table-reserving/table-reserving-gateway" />
+            <option value="$PROJECT_DIR$/table-auth" />
+            <option value="$PROJECT_DIR$/table-domain" />
+            <option value="$PROJECT_DIR$/table-gateway" />
+            <option value="$PROJECT_DIR$/table-reservation-mysql" />
+            <option value="$PROJECT_DIR$/table-reservation/table-application" />
+            <option value="$PROJECT_DIR$/table-reservation/table-application-webclient" />
+            <option value="$PROJECT_DIR$/table-reservation/table-payment-domain" />
+            <option value="$PROJECT_DIR$/table-reservation/table-reservation-domain" />
+            <option value="$PROJECT_DIR$/table-reservation/table-reservation-kafka" />
+            <option value="$PROJECT_DIR$/table-reservation/table-reserving-admin-api" />
+            <option value="$PROJECT_DIR$/table-reservation/table-reserving-api" />
+            <option value="$PROJECT_DIR$/table-reservation/table-reserving-application" />
+            <option value="$PROJECT_DIR$/table-reservation/table-reserving-authn-api" />
+            <option value="$PROJECT_DIR$/table-reservation/table-reserving-gateway" />
+            <option value="$PROJECT_DIR$/table-reservation/table-restaurant-domain" />
+            <option value="$PROJECT_DIR$/table-reservation/table-user-domain" />
           </set>
         </option>
       </GradleProjectSettings>

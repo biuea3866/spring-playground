@@ -1,1 +1,0 @@
-![server_arch.png](server_arch.png)

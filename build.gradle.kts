@@ -1,5 +1,3 @@
-import org.springframework.boot.gradle.tasks.bundling.BootJar
-
 plugins {
     kotlin("jvm")
     id("org.jetbrains.kotlin.kapt")
@@ -11,11 +9,6 @@ plugins {
 
 group = "com.biuea"
 version = "0.0.1-SNAPSHOT"
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
 
 allprojects {
     group = "com.biuea.table"
@@ -40,18 +33,9 @@ dependencyManagement {
 }
 
 subprojects {
-    val kotlinVersion: String by project
     val coroutinesVersion: String by project
     val springBootVersion: String by project
-    val junitJupiterVersion: String by project
-    val logbackContribVersion: String by project
-    val retrofitVersion: String by project
-    val okHttpVersion: String by project
     val jacksonVersion: String by project
-    val jakartaValidationApiVersion: String by project
-    val fixtureMonkeyVersion: String by project
-    val dataFakerVersion: String by project
-    val mockitoKotlinVersion: String by project
 
     apply(plugin = "kotlin")
     apply(plugin = "org.jetbrains.kotlin.jvm")
@@ -65,12 +49,10 @@ subprojects {
             useJUnitPlatform()
         }
 
-        compileKotlin {
-            kotlinOptions.jvmTarget = "17"
-        }
-
-        compileTestKotlin {
-            kotlinOptions.jvmTarget = "17"
+        java {
+            toolchain {
+                languageVersion = JavaLanguageVersion.of(21)
+            }
         }
 
         allOpen {
