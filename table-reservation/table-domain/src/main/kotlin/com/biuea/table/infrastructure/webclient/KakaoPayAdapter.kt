@@ -14,7 +14,7 @@ class KakaoPayAdapter(
 ): PaymentGateway() {
     override val paymentType = PaymentType.KAKAO_PAY
 
-    override fun connectToRefund(transactionId: String): PaymentGatewayResponse {
+    override fun buildRefund(transactionId: String): PaymentGatewayResponse {
         return PaymentGatewayResponse(
             success = false,
             transactionId = transactionId,
@@ -22,7 +22,7 @@ class KakaoPayAdapter(
         )
     }
 
-    override fun connectToPay(transactionId: String, paymentAmount: Int): PaymentGatewayResponse {
+    override fun buildPay(transactionId: String, paymentAmount: Int): PaymentGatewayResponse {
         val response = runCatching {
             webClient.post()
                 .uri("/kakao-pay")

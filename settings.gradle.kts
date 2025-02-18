@@ -37,7 +37,8 @@ if (isDockerBuild) {
         ":jpa-application",
         ":table-domain",
         ":table-auth",
-        ":table-gateway"
+        ":table-gateway",
+        ":design-pattern"
 //    ":platform-domain",
 //    ":platform-infra"
     )
@@ -53,6 +54,7 @@ if (isDockerBuild) {
     project(":table-domain").projectDir = file("table-reservation/table-domain")
     project(":object-practice").projectDir = file("object-practice")
     project(":jpa-application").projectDir = file("jpa-application")
+    project(":design-pattern").projectDir = file("design-pattern")
 }
 //project(":platform-domain").projectDir = file("platform/platform-domain")
 //project(":platform-infra").projectDir = file("platform/platform-infra")
